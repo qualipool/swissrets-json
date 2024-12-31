@@ -1,0 +1,19 @@
+name: Publish Package to npmjs
+on:
+  workflow_dispatch:
+    inputs:
+      semver:
+        type: choice
+        required: true
+        default: patch
+        options: [patch, minor, major]
+        description: The semver of the release.
+jobs:
+  release:
+    uses: qualipool/swissrets-json/tree/master/.github/workflows/release-npm-package.yml
+    permissions:
+      contents: write
+      packages: write
+      pull-requests: write
+      checks: write
+    secrets: inherit

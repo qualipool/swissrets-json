@@ -1,0 +1,38 @@
+name: Release lib
+#  permissions required:
+#    contents: write
+#    packages: write
+#    pull-requests: read
+#    pull-requests: write
+#    checks: write
+
+on:
+  workflow_call:
+    secrets:
+      RELEASER_APP_KEY:
+        description: the private key of the github app that will be used to create the release
+        required: true
+
+jobs:
+  base-jobs:
+    uses: ./.github/workflows/lib-base.yml
+    secrets: inherit
+    permissions:
+      contents: read
+      packages: read
+      pull-requests: write
+      checks: write
+
+  release:
+    needs: base-jobs
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+      pull-requests: read
+    steps:
+      - name: Release lib
+        uses: smg-real-estate/.github-ts/.github/actions/release@v0.8.10
+        with:
+          releaser-app-id: ${{ vars.RELEASER_APP_ID }}
+          releaser-app-key: ${{ secrets.RELEASER_APP_KEY }}
