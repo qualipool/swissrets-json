@@ -1,9 +1,9 @@
 {
-  "name": "swissrets",
+  "name": "@qualipool/swissrets-json",
   "version": "0.9.0",
   "description": "A swiss real estate transfer standard.",
   "directories": {
-    "doc": "docs"
+    "schema": "schema"
   },
   "scripts": {
     "test:unit": "jest --config ./jest.config.js",
