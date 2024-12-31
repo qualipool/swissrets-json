@@ -1,4 +1,4 @@
-import { Geo } from "./Geo";
+import { Geo } from 'src/model/typescript/Geo';
 
 /**
  * Location of the property.

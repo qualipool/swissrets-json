@@ -7,7 +7,7 @@ export const allCustomValidators = (): KeywordDefinition[] => {
 const sameAsCustomValidator: KeywordDefinition = {
   keyword: 'sameAs',
   schema: false,
-  validate: function (value: unknown, root: unknown) {
+  validate(value: unknown, root: unknown) {
     // needed to add this because this custom validator takes precedence over the type check
     // @ts-expect-error - this is a custom validator
     if (!Array.isArray(root.rootData.projects)) {
@@ -17,21 +17,21 @@ const sameAsCustomValidator: KeywordDefinition = {
     // @ts-expect-error - this is a custom validator
     return root.rootData.projects.some((obj: unknown) =>
       // @ts-expect-error - this is a custom validator
-    obj.units?.some((item: unknown) => item.referenceId === value),
+      obj.units?.some((item: unknown) => item.referenceId === value)
     );
   },
-  errors: true,
+  errors: true
 };
 
 const uniqueIdCustomValidator: KeywordDefinition = {
   keyword: 'uniqueId',
   schema: false,
-  validate: function (values: unknown) {
+  validate(values: unknown) {
     if (!values) {
       return false;
     }
     // @ts-expect-error - this is a custom validator
     return new Set(values.map((item: unknown) => item.referenceId)).size == values.length;
   },
-  errors: true,
+  errors: true
 };

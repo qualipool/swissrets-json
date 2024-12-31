@@ -1,11 +1,11 @@
-import { Unit } from "./Unit";
-import { ProjectSeller } from "./ProjectSeller";
-import { ProjectPrices } from "./ProjectPrices";
-import { ProjectLocalization } from "./ProjectLocalization";
-import { ConstructionStatus } from "./ConstructionStatus";
-import { ProjectCharacteristics } from "./ProjectCharacteristics";
-import { ProjectAvailability } from "./ProjectAvailability";
-import { Address } from "./Address";
+import { Address } from 'src/model/typescript/Address';
+import { ConstructionStatus } from 'src/model/typescript/ConstructionStatus';
+import { ProjectAvailability } from 'src/model/typescript/ProjectAvailability';
+import { ProjectCharacteristics } from 'src/model/typescript/ProjectCharacteristics';
+import { ProjectLocalization } from 'src/model/typescript/ProjectLocalization';
+import { ProjectPrices } from 'src/model/typescript/ProjectPrices';
+import { ProjectSeller } from 'src/model/typescript/ProjectSeller';
+import { Unit } from 'src/model/typescript/Unit';
 
 /**
  * Building project container.

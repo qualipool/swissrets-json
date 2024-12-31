@@ -1,6 +1,5 @@
-import { Organization } from "./Organization";
-import { Person } from "./Person";
-
+import { Organization } from 'src/model/typescript/Organization';
+import { Person } from 'src/model/typescript/Person';
 
 export interface PropertySeller {
   /**

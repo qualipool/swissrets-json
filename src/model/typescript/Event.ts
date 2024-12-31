@@ -1,4 +1,3 @@
-
 export interface Event {
   end: string;
   location?: string;

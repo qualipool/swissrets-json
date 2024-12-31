@@ -1,4 +1,3 @@
-
 export enum AdditionalOfferType {
   ParkingCarport = 'parking-carport',
   ParkingDoubleGarage = 'parking-double-garage',

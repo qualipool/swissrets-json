@@ -1,5 +1,5 @@
-import { Event } from "./Event";
-import { PropertyAttachment } from "./PropertyAttachment";
+import { Event } from 'src/model/typescript/Event';
+import { PropertyAttachment } from 'src/model/typescript/PropertyAttachment';
 
 /**
  * One for each language, a set of language specific content and texts.

@@ -1,19 +1,18 @@
-import { Address } from "./Address";
-import { Development } from "./Development";
-import { ExternalReference } from "./ExternalReference";
-import { Heating } from "./Heating";
-import { PropertyLocalization } from "./PropertyLocalization";
-import { MinergieCertification } from "./MinergieCertification";
-import { PropertyPrices } from "./PropertyPrices";
-import { Publisher } from "./Publisher";
-import { PropertySeller } from "./PropertySeller";
-import { PropertyType } from "./PropertyType";
-import { Utilization } from "./Utilization";
-import { PropertyCharacteristics } from "./PropertyCharacteristics";
-import { Category } from "./Category";
-import { Bfs } from "./Bfs";
-import { PropertyAvailability } from "./PropertyAvailability";
-
+import { Address } from 'src/model/typescript/Address';
+import { Bfs } from 'src/model/typescript/Bfs';
+import { Category } from 'src/model/typescript/Category';
+import { Development } from 'src/model/typescript/Development';
+import { ExternalReference } from 'src/model/typescript/ExternalReference';
+import { Heating } from 'src/model/typescript/Heating';
+import { MinergieCertification } from 'src/model/typescript/MinergieCertification';
+import { PropertyAvailability } from 'src/model/typescript/PropertyAvailability';
+import { PropertyCharacteristics } from 'src/model/typescript/PropertyCharacteristics';
+import { PropertyLocalization } from 'src/model/typescript/PropertyLocalization';
+import { PropertyPrices } from 'src/model/typescript/PropertyPrices';
+import { PropertySeller } from 'src/model/typescript/PropertySeller';
+import { PropertyType } from 'src/model/typescript/PropertyType';
+import { Publisher } from 'src/model/typescript/Publisher';
+import { Utilization } from 'src/model/typescript/Utilization';
 
 export interface Property {
   /**

@@ -1,4 +1,4 @@
-import { ApplicableType } from "./ApplicableType";
+import { ApplicableType } from 'src/model/typescript/ApplicableType';
 
 /**
  * Main characteristics of properties

@@ -1,5 +1,5 @@
-import { Organization } from "./Organization";
-import { Person } from "./Person";
+import { Organization } from 'src/model/typescript/Organization';
+import { Person } from 'src/model/typescript/Person';
 
 /**
  * The owner or the owners substitute (for example a broker).

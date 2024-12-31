@@ -1,5 +1,5 @@
-import { HeatingDistribution } from "./HeatingDistribution";
-import { HeatingGeneration } from "./HeatingGeneration";
+import { HeatingDistribution } from 'src/model/typescript/HeatingDistribution';
+import { HeatingGeneration } from 'src/model/typescript/HeatingGeneration';
 
 /**
  * The main heating system.

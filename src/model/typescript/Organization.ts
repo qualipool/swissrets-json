@@ -1,5 +1,5 @@
-import { Address } from "./Address";
-import { Website } from "./Website";
+import { Address } from 'src/model/typescript/Address';
+import { Website } from 'src/model/typescript/Website';
 
 /**
  * The company selling

@@ -1,6 +1,6 @@
-import { Property } from "./Property";
-import { Project } from "./Project";
-import { Generator } from "./Generator";
+import { Generator } from 'src/model/typescript/Generator';
+import { Project } from 'src/model/typescript/Project';
+import { Property } from 'src/model/typescript/Property';
 
 /**
  * A product in the catalog

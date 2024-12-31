@@ -1,4 +1,4 @@
-import { State } from "./State";
+import { State } from 'src/model/typescript/State';
 
 /**
  * Mutually exclusive lifecycle state.

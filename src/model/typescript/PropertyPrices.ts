@@ -1,8 +1,8 @@
-import { Auction } from "./Auction";
-import { Deposit } from "./Deposit";
-import { JsonSchemaSwissRetsJson } from "./JsonSchemaSwissRetsJson";
-import { PropertyPriceBuy } from "./PropertyPriceBuy";
-import { PropertyPriceRent } from "./PropertyPriceRent";
+import { Auction } from 'src/model/typescript/Auction';
+import { Deposit } from 'src/model/typescript/Deposit';
+import { JsonSchemaSwissRetsJson } from 'src/model/typescript/JsonSchemaSwissRetsJson';
+import { PropertyPriceBuy } from 'src/model/typescript/PropertyPriceBuy';
+import { PropertyPriceRent } from 'src/model/typescript/PropertyPriceRent';
 
 /**
  * Sell, rent, deposit and auction prices.

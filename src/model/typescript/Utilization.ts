@@ -1,4 +1,3 @@
-
 export enum Utilization {
   Agricultural = 'agricultural',
   Commercial = 'commercial',

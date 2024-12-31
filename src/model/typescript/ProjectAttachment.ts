@@ -1,7 +1,7 @@
-import { Logo } from "./Logo";
-import { Image } from "./Image";
-import { Document } from "./Document";
-import { Link } from "./Link";
+import { Document } from 'src/model/typescript/Document';
+import { Image } from 'src/model/typescript/Image';
+import { Link } from 'src/model/typescript/Link';
+import { Logo } from 'src/model/typescript/Logo';
 
 /**
  * Sequence links, files, embeds and media.

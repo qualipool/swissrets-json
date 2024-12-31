@@ -1,6 +1,5 @@
-import { PublisherOption } from "./PublisherOption";
-import { PublisherPromotion } from "./PublisherPromotion";
-
+import { PublisherOption } from 'src/model/typescript/PublisherOption';
+import { PublisherPromotion } from 'src/model/typescript/PublisherPromotion';
 
 export interface Publisher {
   id: string;

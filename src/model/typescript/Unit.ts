@@ -1,5 +1,5 @@
-import { UnitLocalization } from "./UnitLocalization";
-import { UnitCharacteristic } from "./UnitCharacteristic";
+import { UnitCharacteristic } from 'src/model/typescript/UnitCharacteristic';
+import { UnitLocalization } from 'src/model/typescript/UnitLocalization';
 
 /**
  * A set of properties

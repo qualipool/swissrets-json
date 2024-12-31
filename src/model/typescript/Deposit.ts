@@ -1,4 +1,4 @@
-import { DepositType } from "./DepositType";
+import { DepositType } from 'src/model/typescript/DepositType';
 
 /**
  * Required amount of deposit.

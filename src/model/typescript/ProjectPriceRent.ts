@@ -1,5 +1,5 @@
-import { Interval } from "./Interval";
-import { Referring } from "./Referring";
+import { Interval } from 'src/model/typescript/Interval';
+import { Referring } from 'src/model/typescript/Referring';
 
 /**
  * Recurring rental price.

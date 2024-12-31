@@ -21,7 +21,12 @@
     "target": "es2022", // https://node.green/#ES2022  Node 18 supports all of es2022
 
     // Completeness
-    "skipLibCheck": true // recommended
+    "skipLibCheck": true, // recommended
+
+    // Modules
+    "paths": {
+      "src/*": ["./src/*"]
+    }
   },
 
   // Top Level

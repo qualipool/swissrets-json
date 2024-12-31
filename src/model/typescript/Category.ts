@@ -1,4 +1,3 @@
-
 export enum Category {
   AdvertisingArea = 'advertising-area',
   AgriculturalLot = 'agricultural-lot',

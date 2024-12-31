@@ -1,4 +1,4 @@
-import { ProjectAttachment } from "./ProjectAttachment";
+import { ProjectAttachment } from 'src/model/typescript/ProjectAttachment';
 
 /**
  * One for each language, a set of language specific content and texts.

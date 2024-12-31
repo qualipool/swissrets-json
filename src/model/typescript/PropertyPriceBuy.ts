@@ -1,4 +1,4 @@
-import { Referring } from "./Referring";
+import { Referring } from 'src/model/typescript/Referring';
 
 /**
  * One time buy prices.

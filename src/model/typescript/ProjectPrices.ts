@@ -1,5 +1,5 @@
-import { ProjectPriceRent } from "./ProjectPriceRent";
-import { ProjectPriceBuy } from "./ProjectPriceBuy";
+import { ProjectPriceBuy } from 'src/model/typescript/ProjectPriceBuy';
+import { ProjectPriceRent } from 'src/model/typescript/ProjectPriceRent';
 
 /**
  * Price ranges for marketing purposes.
