@@ -2,13 +2,19 @@
   "name": "@qualipool/swissrets-json",
   "version": "0.9.0",
   "description": "A swiss real estate transfer standard.",
-  "directories": {
-    "schema": "schema"
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test:unit": "jest --config ./jest.config.js",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "build": "tsc --project tsconfig.build.json"
   },
   "repository": {
     "type": "git",

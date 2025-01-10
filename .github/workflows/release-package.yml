@@ -1,4 +1,4 @@
-name: Publish Package to npmjs
+name: Publish Package to github packages
 on:
   workflow_dispatch:
     inputs:
@@ -23,6 +23,7 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@qualipool'
+      - run: echo "github.event.inputs.semver ${{ github.event.inputs.semver }}"
       - run: npm ci
       - run: npm publish
         env:
