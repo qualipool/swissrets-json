@@ -49,6 +49,7 @@ jobs:
           default_author: user_info
           push: 'true'
           tag: v${{ steps.next_version.outputs.version }}
+          github_token: ${{ github.token }}
 
       ######
       ## Build package and publish it to GitHub packages
