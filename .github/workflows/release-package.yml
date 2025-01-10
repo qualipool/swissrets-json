@@ -1,13 +1,7 @@
 name: Publish Package to github packages
 on:
-  workflow_dispatch:
-    inputs:
-      semver:
-        type: choice
-        required: true
-        default: patch
-        options: [patch, minor, major]
-        description: The semver of the release.
+  release:
+    types: [published]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,30 +21,20 @@ jobs:
           scope: '@qualipool'
 
       ######
-      ## Calculate next version based on user semver input
       ## Update version and create tag and push to main
       ######
-      - name: Calculate next version based on semver input
-        id: next_version
-        uses: zwaldowski/semver-release-action@a6a8309186ccf60c52ea2463a723c78d3b924577 # v4
-        with:
-          dry_run: true
-          per_branch: true
-          bump: ${{ github.event.inputs.semver }}
-          github_token: ${{ github.token }}
-
       - name: Bump version in package.json
         uses: reedyuk/npm-version@15e0d016f632fe38bbb704910b8359f23262deb7 # 1.2.2
         with:
-          version: ${{ steps.next_version.outputs.version }}
+          version: ${{ github.event.release.tag_name }}
 
       - name: Commit files, create tag and push to remote
         uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9.1.4
         with:
-          message: ${{ steps.next_version.outputs.version }}
+          message: ${{ github.event.release.tag_name }}
           default_author: user_info
           push: 'true'
-          tag: v${{ steps.next_version.outputs.version }}
+          tag: v${{ github.event.release.tag_name }}
           github_token: ${{ github.token }}
 
       ######
