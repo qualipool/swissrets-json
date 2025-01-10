@@ -21,21 +21,12 @@ jobs:
           scope: '@qualipool'
 
       ######
-      ## Update version and create tag and push to main
+      ## Update version
       ######
       - name: Bump version in package.json
         uses: reedyuk/npm-version@15e0d016f632fe38bbb704910b8359f23262deb7 # 1.2.2
         with:
           version: ${{ github.event.release.tag_name }}
-
-      - name: Commit files, create tag and push to remote
-        uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9.1.4
-        with:
-          message: ${{ github.event.release.tag_name }}
-          default_author: user_info
-          push: 'true'
-          tag: v${{ github.event.release.tag_name }}
-          github_token: ${{ github.token }}
 
       ######
       ## Build package and publish it to GitHub packages
