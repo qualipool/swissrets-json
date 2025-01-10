@@ -24,6 +24,14 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           scope: '@qualipool'
       - run: echo "github.event.inputs.semver ${{ github.event.inputs.semver }}"
+      - name: Calculate next version based on semver input
+        id: next_version
+        uses: zwaldowski/semver-release-action@a6a8309186ccf60c52ea2463a723c78d3b924577 # v4
+        with:
+          dry_run: true
+          per_branch: true
+          bump: ${{ github.event.inputs.semver }}
+          github_token: ${{ github.token }}
       - run: npm ci
       - run: npm publish
         env:
