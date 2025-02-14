@@ -1,0 +1,30 @@
+{
+  "created": "2023-03-23T08:11:12Z",
+  "generator": {
+    "name": "CASAGATEWAY",
+    "version": "0.9"
+  },
+  "properties": [
+    {
+      "id": "amIuniqueOrAmI",
+      "referenceId": "kj3kj3kj38ss",
+      "type": "buy",
+      "address": {
+        "countryCode": "CH",
+        "locality": "Bern",
+        "postalCode": "3000"
+      },
+      "availability": {
+        "state": "private",
+        "start": "2023-03-23T08:11:12Z",
+        "expiration": "2023-03-23T08:11:12Z"
+      },
+      "localizations": [
+        {
+          "languageCode": "de",
+          "title": "Doppelhaushälfte"
+        }
+      ]
+    }
+  ]
+}

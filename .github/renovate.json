@@ -1,0 +1,83 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices",
+
+    "group:definitelyTyped",
+    "group:linters",
+    "group:postcss",
+    "group:unitTestNonMajor",
+
+    ":automergeLinters",
+    ":automergeTesters",
+    ":automergeTypes",
+    ":automergeMinor",
+    ":automergeStableNonMajor",
+
+    ":ignoreUnstable",
+
+    ":prHourlyLimitNone",
+
+    ":rebaseStalePrs",
+
+    ":maintainLockFilesWeekly"
+  ],
+
+  "addLabels": ["renovate-bot", "dependencies"],
+
+  "timezone": "Europe/Zurich",
+
+  "schedule": ["every weekend"],
+
+  "automergeSchedule": ["after 1am and before 9am every weekday"],
+
+  "automergeStrategy": "rebase",
+
+  "prConcurrentLimit": 15,
+
+  "packageRules": [
+    {
+      "matchSourceUrlPrefixes": ["https://github.com/getndazn/dazn-lambda-powertools"],
+      "groupName": "Dazn lambda powertools packages"
+    },
+    {
+      "matchSourceUrlPrefixes": ["https://github.com/middyjs/middy"],
+      "groupName": "Middy middleware packages"
+    },
+    {
+      "matchPackagePrefixes": [ "@aws-solutions-constructs"],
+      "groupSlug": "aws-solutions-constructs",
+      "groupName": "aws-solutions-constructs packages"
+    },
+
+    { "matchManagers": ["github-actions"], "automerge": true },
+
+    {
+      "matchPackageNames": ["vue", "vue-router", "vuex"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    },
+    {
+      "matchPackageNames": ["@smg-real-estate/vue-experiments"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    },
+
+    {
+      "matchPackagePatterns": ["@homegate", "@smg-real-estate"],
+      "schedule": ["after 1am and before 6pm every weekday"]
+    },
+
+    {
+      "matchDepTypes": ["action"],
+      "schedule": ["after 1am and before 6pm every weekday"]
+    },
+
+    { "matchPackageNames": ["@types/node"], "extends": ["schedule:monthly"] }
+
+  ],
+
+  "hostRules": [
+    { "hostType": "npm", "matchHost": "npm.pkg.github.com", "token": "{{ secrets.GITHUB_TOKEN }}" }
+  ]
+}
