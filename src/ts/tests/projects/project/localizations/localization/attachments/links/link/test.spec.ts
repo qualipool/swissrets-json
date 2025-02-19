@@ -1,6 +1,6 @@
 import validListing from 'examples/swissrets-full.json';
 import _ from 'lodash';
-import { validateSwissRetsObject } from 'src/ts/validator/validator';
+import { validateSwissRets } from 'src/ts/validator/validator';
 
 import { SwissRetsInventory } from 'src/ts/model/swissrets-model';
 import { stubSrFullModified } from 'src/ts/tests/resources/swissrets-stubs';
@@ -8,7 +8,7 @@ import { stubSrFullModified } from 'src/ts/tests/resources/swissrets-stubs';
 describe('projects[0].localizations[0].attachments.links[0] tests', () => {
   it('Invalid - projects[0].localizations[0].attachments.links[0] must be object', () => {
     const clone = stubSrFullModified('projects[0].localizations[0].attachments.links[0]', () => 33);
-    const output = validateSwissRetsObject(clone);
+    const output = validateSwissRets(clone);
 
     expect(output[0].message).toBe('must be object');
     expect(output[0].instancePath).toBe('/projects/0/localizations/0/attachments/links/0');
@@ -19,7 +19,7 @@ describe('projects[0].localizations[0].attachments.links[0] tests', () => {
     _.assign(clone.projects![0].localizations![0].attachments!.links![0], {
       additionalProperty: 'additionalProperty'
     });
-    const output = validateSwissRetsObject(clone);
+    const output = validateSwissRets(clone);
 
     expect(output[0].message).toBe('must NOT have additional properties');
     expect(output[0].instancePath).toBe('/projects/0/localizations/0/attachments/links/0');
@@ -28,7 +28,7 @@ describe('projects[0].localizations[0].attachments.links[0] tests', () => {
   it('Invalid - projects[0].localizations[0].attachments.links[0].url must be present', () => {
     const clone = _.cloneDeep(validListing) as SwissRetsInventory;
     _.unset(clone, 'projects[0].localizations[0].attachments.links[0].url');
-    const output = validateSwissRetsObject(clone);
+    const output = validateSwissRets(clone);
 
     expect(output[0].message).toBe("must have required property 'url'");
     expect(output[0].instancePath).toBe('/projects/0/localizations/0/attachments/links/0');
@@ -39,7 +39,7 @@ describe('projects[0].localizations[0].attachments.links[0] tests', () => {
       'projects[0].localizations[0].attachments.links[0].url',
       () => 33
     );
-    const output = validateSwissRetsObject(clone);
+    const output = validateSwissRets(clone);
 
     expect(output[0].message).toBe('must be string');
     expect(output[0].instancePath).toBe('/projects/0/localizations/0/attachments/links/0/url');
@@ -50,7 +50,7 @@ describe('projects[0].localizations[0].attachments.links[0] tests', () => {
       'projects[0].localizations[0].attachments.links[0].title',
       () => 33
     );
-    const output = validateSwissRetsObject(clone);
+    const output = validateSwissRets(clone);
 
     expect(output[0].message).toBe('must be string');
     expect(output[0].instancePath).toBe('/projects/0/localizations/0/attachments/links/0/title');
@@ -59,7 +59,7 @@ describe('projects[0].localizations[0].attachments.links[0] tests', () => {
   it('Valid - projects[0].localizations[0].attachments.links[0].title is optional', () => {
     const clone = _.cloneDeep(validListing) as SwissRetsInventory;
     _.unset(clone, 'projects[0].localizations[0].attachments.links[0].title');
-    const output = validateSwissRetsObject(clone);
+    const output = validateSwissRets(clone);
 
     expect(output).toBeDefined();
     expect(output).toHaveLength(0);

@@ -17,8 +17,7 @@ Check out the schema [documentation](https://qualipool.github.io/swissrets-json/
 
 ```ts
 import {
-    validateSwissRetsString,
-    validateSwissRetsObject,
+    validateSwissRets,
     SwissRetsInventory
 } from '@qualipool/swissrets-json';
 
@@ -31,7 +30,7 @@ const stringValue = `{
     },
     "properties": []
     }`;
-const result = validateSwissRetsString(stringValue);
+const result = validateSwissRets(Value);
 console.log(result);
 
 // validating a SwissRETS JSON object
@@ -44,6 +43,6 @@ const srObject: SwissRetsInventory = {
     properties: []
 };
 
-result = validateSwissRetsObject(srObject);
+result = validateSwissRets(srObject);
 console.log(result);
 ```

@@ -1,6 +1,6 @@
 import validListing from 'examples/swissrets-full.json';
 import _ from 'lodash';
-import { validateSwissRetsObject } from 'src/ts/validator/validator';
+import { validateSwissRets } from 'src/ts/validator/validator';
 
 import { SwissRetsInventory } from 'src/ts/model/swissrets-model';
 import { stubSrFullModified } from 'src/ts/tests/resources/swissrets-stubs';
@@ -8,7 +8,7 @@ import { stubSrFullModified } from 'src/ts/tests/resources/swissrets-stubs';
 describe('projects[0].characteristics tests', () => {
   it('Invalid - projects[0].characteristics is of invalid type', () => {
     const invalid = stubSrFullModified('projects[0].characteristics', () => []);
-    const output = validateSwissRetsObject(invalid);
+    const output = validateSwissRets(invalid);
 
     expect(output[0].message).toBe('must be object');
     expect(output[0].instancePath).toBe('/projects/0/characteristics');
@@ -17,7 +17,7 @@ describe('projects[0].characteristics tests', () => {
   it('Invalid - projects[0].characteristics has additional properties', () => {
     const invalid = _.cloneDeep(validListing) as SwissRetsInventory;
     _.assign(invalid.projects![0].characteristics, { additionalProperty: 'dummy' });
-    const output = validateSwissRetsObject(invalid);
+    const output = validateSwissRets(invalid);
 
     expect(output[0].message).toBe('must NOT have additional properties');
     expect(output[0].instancePath).toBe('/projects/0/characteristics');
@@ -36,7 +36,7 @@ describe('projects[0].characteristics tests', () => {
         numberOfCommercialUnits: 'a'
       };
     });
-    const output = validateSwissRetsObject(invalid);
+    const output = validateSwissRets(invalid);
 
     expect(output[0].instancePath).toBe('/projects/0/characteristics/areaSiaNfFrom');
     expect(output[0].message).toBe('must be number');
@@ -69,7 +69,7 @@ describe('projects[0].characteristics tests', () => {
         numberOfCommercialUnits: -1
       };
     });
-    const output = validateSwissRetsObject(invalid);
+    const output = validateSwissRets(invalid);
 
     expect(output[0].instancePath).toBe('/projects/0/characteristics/areaSiaNfFrom');
     expect(output[0].message).toBe('must be >= 0');
