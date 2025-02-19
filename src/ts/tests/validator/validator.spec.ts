@@ -40,6 +40,20 @@ describe('Unit Test: Validate Samples', () => {
     expect(output[0].instancePath).toBe('/properties/0');
   });
 
+  it('Valid - remove additional property', () => {
+    // when
+    const testData = provideTestData('sr-valid');
+    // @ts-expect-error - we know this is valid
+    testData.properties[0].foo = 'bar';
+
+    const output = validateSwissRets(testData, { removeAdditional: true });
+
+    // then
+    expect(output).toHaveLength(0);
+    // @ts-expect-error - we know this is valid
+    expect(testData.properties[0].foo).toBeUndefined();
+  });
+
   it('Invalid - project.unit has same refenereceId', () => {
     const output = validateSwissRets(provideTestData('sr-invalid-uniqId'));
 
