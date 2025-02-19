@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { validateSwissRetsObject } from 'src/ts/validator/validator';
+import { validateSwissRets } from 'src/ts/validator/validator';
 
 import { stubSrFullModified } from 'src/ts/tests/resources/swissrets-stubs';
 
@@ -9,7 +9,7 @@ describe('projects[0].localizations[0].attachments.landRegisterExtracts tests', 
       'projects[0].localizations[0].attachments.landRegisterExtracts',
       () => 33
     );
-    const output = validateSwissRetsObject(clone);
+    const output = validateSwissRets(clone);
 
     expect(output[0].message).toBe('must be array');
     expect(output[0].instancePath).toBe(
@@ -22,7 +22,7 @@ describe('projects[0].localizations[0].attachments.landRegisterExtracts tests', 
       'projects[0].localizations[0].attachments.landRegisterExtracts',
       () => []
     );
-    const output = validateSwissRetsObject(clone);
+    const output = validateSwissRets(clone);
 
     expect(output).toBeDefined();
     expect(output).toHaveLength(0);

@@ -1,6 +1,6 @@
 import validListing from 'examples/swissrets-full.json';
 import _ from 'lodash';
-import { validateSwissRetsObject } from 'src/ts/validator/validator';
+import { validateSwissRets } from 'src/ts/validator/validator';
 
 import { SwissRetsInventory } from 'src/ts/model/swissrets-model';
 import { stubSrFullModified } from 'src/ts/tests/resources/swissrets-stubs';
@@ -10,7 +10,7 @@ describe('projects tests', () => {
     const invalid = stubSrFullModified('projects', () => {
       return {};
     });
-    const output = validateSwissRetsObject(invalid);
+    const output = validateSwissRets(invalid);
 
     expect(output[0].message).toBe('must be array');
     expect(output[0].instancePath).toBe('/projects');
@@ -20,7 +20,7 @@ describe('projects tests', () => {
     const valid = _.cloneDeep(validListing) as SwissRetsInventory;
     _.update(valid, 'projects', () => []);
     _.update(valid, 'properties', () => []);
-    const output = validateSwissRetsObject(valid);
+    const output = validateSwissRets(valid);
 
     expect(output).toBeDefined();
     expect(output).toHaveLength(0);

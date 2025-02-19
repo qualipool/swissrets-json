@@ -1,11 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import { SwissRetsInventory } from 'src/ts/model/swissrets-model';
-import { validateSwissRetsObject } from 'src/ts/validator/validator';
+import { validateSwissRets } from 'src/ts/validator/validator';
 
 describe('Unit Test: Validate Samples', () => {
   it('Valid - Should not return error', () => {
-    const output = validateSwissRetsObject(provideTestData('sr-valid'));
+    const output = validateSwissRets(provideTestData('sr-valid'));
     expect(output).toBeDefined();
     expect(output).toHaveLength(0);
   });
@@ -16,7 +16,7 @@ describe('Unit Test: Validate Samples', () => {
     // @ts-expect-error - we know this is valid
     delete testData.properties[0].referenceId;
 
-    const output = validateSwissRetsObject(testData);
+    const output = validateSwissRets(testData);
 
     // then
     expect(output).toHaveLength(1);
@@ -31,7 +31,7 @@ describe('Unit Test: Validate Samples', () => {
     // @ts-expect-error - we know this is valid
     testData.properties[0].foo = 'bar';
 
-    const output = validateSwissRetsObject(testData);
+    const output = validateSwissRets(testData);
 
     // then
     expect(output).toHaveLength(1);
@@ -41,7 +41,7 @@ describe('Unit Test: Validate Samples', () => {
   });
 
   it('Invalid - project.unit has same refenereceId', () => {
-    const output = validateSwissRetsObject(provideTestData('sr-invalid-uniqId'));
+    const output = validateSwissRets(provideTestData('sr-invalid-uniqId'));
 
     expect(output).toHaveLength(1);
     expect(output[0].message).toBe('must pass "uniqueId" keyword validation');
@@ -50,7 +50,7 @@ describe('Unit Test: Validate Samples', () => {
   });
 
   it('Invalid - properties.unitReferenceId is not same as project.unit.refenereceId', () => {
-    const output = validateSwissRetsObject(provideTestData('sr-invalid-sameAs'));
+    const output = validateSwissRets(provideTestData('sr-invalid-sameAs'));
 
     expect(output).toHaveLength(1);
     expect(output[0].message).toBe('must pass "sameAs" keyword validation');
