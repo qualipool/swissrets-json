@@ -1,4 +1,4 @@
-name: Schema validator
+name: PR Action
 
 on:
   pull_request:
@@ -9,6 +9,7 @@ on:
 
 jobs:
   build:
+    name: Lint and run Tests
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
