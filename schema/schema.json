@@ -360,7 +360,7 @@
           "description": "This ID needs to be unique and represents the id from the exporter (this can be the same as referenceId if the exporter is the original creator)"
         },
         "type": {
-          "title": "OfferType.",
+          "title": "OfferType",
           "description": "Specifies rent or buy.",
           "type": "string",
           "enum": ["buy", "rent"]
