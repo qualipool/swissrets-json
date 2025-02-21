@@ -289,12 +289,7 @@ export interface ProjectSeller {
    * contact is typicaly presented publicly.
    */
   contactPerson?: Person;
-  /**
-   * The person responsible for receiving inquiries and applications. This person should not
-   * be presented publicly and is only intended as an indirect recipient using an online form
-   * or similar.
-   */
-  inquiryPerson?: Person;
+  inquiryEmail?: string;
   /**
    * The company selling
    */
@@ -306,10 +301,6 @@ export interface ProjectSeller {
  * contact is typicaly presented publicly.
  *
  * An organization selling the property.
- *
- * The person responsible for receiving inquiries and applications. This person should not
- * be presented publicly and is only intended as an indirect recipient using an online form
- * or similar.
  *
  * Person responsible opening the door for visiting.
  */
