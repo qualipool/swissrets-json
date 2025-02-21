@@ -37,7 +37,7 @@ export interface Project {
   /**
    * Construction status of project.
    */
-  constructionStatus?: ConstructionStatus;
+  constructionStatus?: ConstructionStatusType;
   id?: string;
   /**
    * Sequence of all language specific content and texts.
@@ -128,7 +128,7 @@ export interface ProjectCharacteristics {
 /**
  * Construction status of project.
  */
-export enum ConstructionStatus {
+export enum ConstructionStatusType {
   Completed = 'completed',
   Planned = 'planned',
   Ready = 'ready',
@@ -247,13 +247,13 @@ export interface ProjectPrices {
 export interface ProjectPriceBuy {
   priceFrom: number;
   priceTo: number;
-  referring: Referring;
+  referring: PriceReferringType;
 }
 
 /**
  * For what area the price stands for.
  */
-export enum Referring {
+export enum PriceReferringType {
   All = 'all',
   Km2 = 'km2',
   M2 = 'm2'
@@ -263,16 +263,16 @@ export enum Referring {
  * Recurring rental price.
  */
 export interface ProjectPriceRent {
-  interval?: Interval;
+  interval?: PriceIntervalType;
   netFrom: number;
   netTo: number;
-  referring?: Referring;
+  referring?: PriceReferringType;
 }
 
 /**
  * The payment interval, the price stands for.
  */
-export enum Interval {
+export enum PriceIntervalType {
   Day = 'day',
   Month = 'month',
   Onetime = 'onetime',
@@ -409,7 +409,7 @@ export interface Property {
   /**
    * Sequence of ordered categories (main first).
    */
-  categories?: Category[];
+  categories?: PropertyCategory[];
   /**
    * Main characteristics of properties
    */
@@ -421,7 +421,7 @@ export interface Property {
   /**
    * The development state of the property.
    */
-  development?: Development;
+  development?: DevelopmentState;
   /**
    * Object references based on other than SwissRETS standard (e.g IDX).
    */
@@ -442,7 +442,7 @@ export interface Property {
   /**
    * Quality label for new and refurbished low-energy-consumption buildings.
    */
-  minergieCertification?: MinergieCertification;
+  minergieCertification?: MinergieCertificationType;
   /**
    * Date and time of the last modification. This field should only be used for presentational
    * purposes and should not be relied upon for import cache-busting.
@@ -467,7 +467,7 @@ export interface Property {
   /**
    * Specifies rent or buy.
    */
-  type: PropertyType;
+  type: OfferType;
   /**
    * Reference to an existing project - unit within the xml. Used for grouping and
    * representing a 'project-tree'
@@ -476,7 +476,7 @@ export interface Property {
   /**
    * Prioritized sequence for the intended utilization of the property, main comes first.
    */
-  utilizations?: Utilization[];
+  utilizations?: PropertyUtilization[];
   /**
    * Can should only be used for presentational purposes publishers tend to present the
    * referenceId if this one is missing
@@ -511,7 +511,7 @@ export interface Bfs {
   ewid?: string;
 }
 
-export enum Category {
+export enum PropertyCategory {
   AdvertisingArea = 'advertising-area',
   AgriculturalLot = 'agricultural-lot',
   AllotmentGarden = 'allotment-garden',
@@ -1330,7 +1330,7 @@ export enum ApplicableType {
 /**
  * The development state of the property.
  */
-export enum Development {
+export enum DevelopmentState {
   Full = 'full',
   Partial = 'partial',
   Undeveloped = 'undeveloped'
@@ -1352,17 +1352,17 @@ export interface Heating {
   /**
    * How the heating system distributes and maintains temperature.
    */
-  distribution?: HeatingDistribution;
+  distribution?: HeatingDistributionType;
   /**
    * Technology used to create heat.
    */
-  generation?: HeatingGeneration;
+  generation?: HeatingGenerationType;
 }
 
 /**
  * How the heating system distributes and maintains temperature.
  */
-export enum HeatingDistribution {
+export enum HeatingDistributionType {
   Floor = 'floor',
   Radiator = 'radiator'
 }
@@ -1370,7 +1370,7 @@ export enum HeatingDistribution {
 /**
  * Technology used to create heat.
  */
-export enum HeatingGeneration {
+export enum HeatingGenerationType {
   Coal = 'coal',
   District = 'district',
   Electricity = 'electricity',
@@ -1451,7 +1451,7 @@ export interface Event {
 /**
  * Quality label for new and refurbished low-energy-consumption buildings.
  */
-export enum MinergieCertification {
+export enum MinergieCertificationType {
   Minergie = 'Minergie',
   MinergieA = 'Minergie-A',
   MinergieAEco = 'Minergie-A-Eco',
@@ -1470,7 +1470,7 @@ export interface PropertyPrices {
   /**
    * List of extras.
    */
-  additionalOffers?: SchemaJson[];
+  additionalOffers?: AdditionalOffer[];
   /**
    * Starting price for an auction.
    */
@@ -1490,8 +1490,8 @@ export interface PropertyPrices {
   rent?: PropertyPriceRent;
 }
 
-export interface SchemaJson {
-  interval?: Interval;
+export interface AdditionalOffer {
+  interval?: PriceIntervalType;
   price: number;
   type: AdditionalOfferType;
 }
@@ -1540,7 +1540,7 @@ export interface PropertyPriceBuy {
    * Price for buying.
    */
   price?: number;
-  referring?: Referring;
+  referring?: PriceReferringType;
   /**
    * The percentage of the gross price which has to paid in WIR Franc electronic currency.
    */
@@ -1581,12 +1581,12 @@ export interface PropertyPriceRent {
    * Gross rental price.
    */
   gross?: number;
-  interval?: Interval;
+  interval?: PriceIntervalType;
   /**
    * Net rental price.
    */
   net?: number;
-  referring?: Referring;
+  referring?: PriceReferringType;
 }
 
 export interface Publisher {
@@ -1643,12 +1643,12 @@ export interface PropertySeller {
 /**
  * Specifies rent or buy.
  */
-export enum PropertyType {
+export enum OfferType {
   Buy = 'buy',
   Rent = 'rent'
 }
 
-export enum Utilization {
+export enum PropertyUtilization {
   Agricultural = 'agricultural',
   Commercial = 'commercial',
   Construction = 'construction',

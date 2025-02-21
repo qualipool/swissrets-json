@@ -97,6 +97,7 @@
         },
         "constructionStatus": {
           "type": "string",
+          "title": "ConstructionStatusType",
           "description": "Construction status of project.",
           "enum": ["planned", "under-construction", "ready", "completed"]
         },
@@ -359,6 +360,7 @@
           "description": "This ID needs to be unique and represents the id from the exporter (this can be the same as referenceId if the exporter is the original creator)"
         },
         "type": {
+          "title": "OfferType",
           "description": "Specifies rent or buy.",
           "type": "string",
           "enum": ["buy", "rent"]
@@ -400,6 +402,7 @@
           "description": "Prioritized sequence for the intended utilization of the property, main comes first.",
           "items": {
             "type": "string",
+            "title": "PropertyUtilization",
             "enum": [
               "agricultural",
               "commercial",
@@ -415,6 +418,7 @@
           }
         },
         "minergieCertification": {
+          "title": "MinergieCertificationType",
           "description": "Quality label for new and refurbished low-energy-consumption buildings.",
           "type": "string",
           "enum": [
@@ -453,6 +457,7 @@
         },
         "development": {
           "type": "string",
+          "title": "DevelopmentState",
           "description": "The development state of the property.",
           "enum": ["full", "partial", "undeveloped"]
         },
@@ -471,6 +476,7 @@
           "uniqueItems": true,
           "items": {
             "type": "string",
+            "title": "PropertyCategory",
             "enum": [
               "advertising-area",
               "agricultural-lot",
@@ -654,11 +660,13 @@
       "minLength": 2
     },
     "priceIntervalType": {
+      "title": "PriceIntervalType",
       "description": "The payment interval, the price stands for.",
       "type": "string",
       "enum": ["onetime", "day", "week", "month", "year"]
     },
     "priceReferringType": {
+      "title": "PriceReferringType",
       "description": "For what area the price stands for.",
       "type": "string",
       "enum": ["all", "m2", "km2"]
@@ -767,7 +775,7 @@
       "properties": {
         "generation": {
           "type": "string",
-          "title": "HeatingGeneration",
+          "title": "HeatingGenerationType",
           "description": "Technology used to create heat.",
           "enum": [
             "district",
@@ -786,7 +794,7 @@
         },
         "distribution": {
           "type": "string",
-          "title": "HeatingDistribution",
+          "title": "HeatingDistributionType",
           "description": "How the heating system distributes and maintains temperature.",
           "enum": ["radiator", "floor"]
         }
@@ -1612,6 +1620,7 @@
               "minimum": 0
             },
             "type": {
+              "title": "DepositType",
               "description": "Type of deposit.",
               "type": "string",
               "enum": ["bank-guarantee", "deposit-guarantee"]
@@ -1620,6 +1629,7 @@
           "required": ["amount"]
         },
         "additionalOffers": {
+          "title": "AdditionalOffers",
           "type": "array",
           "description": "List of extras.",
           "items": {
@@ -1695,11 +1705,13 @@
       }
     },
     "applicableType": {
+      "title": "ApplicableType",
       "description": "Applicable can have three states, unknown must be treated as default.",
       "type": "string",
       "enum": ["applies", "does-not-apply", "unknown"]
     },
     "availabilityStateType": {
+      "title": "AvailabilityStateType",
       "description": "Lifecycle state of properties.",
       "type": "string",
       "enum": ["active", "private", "reference", "reserved", "taken"]
@@ -1941,6 +1953,7 @@
       "pattern": "^[A-Z]{3}$"
     },
     "additionalOfferType": {
+      "title": "AdditionalOffer",
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -1949,6 +1962,7 @@
         },
         "type": {
           "type": "string",
+          "title": "AdditionalOfferType",
           "enum": [
             "parking-exterior-space",
             "parking-carport",
