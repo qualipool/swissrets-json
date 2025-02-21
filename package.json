@@ -1,6 +1,6 @@
 {
   "name": "@qualipool/swissrets-json",
-  "version": "3.0.0-alpha.4",
+  "version": "3.0.0-alpha.5",
   "description": "A swiss real estate transfer standard.",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
