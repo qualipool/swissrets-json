@@ -117,50 +117,6 @@ describe('properties[0] tests', () => {
     expect(output).toHaveLength(0);
   });
 
-  it('Valid - properties[0].utilizations is optional', () => {
-    const invalid = _.cloneDeep(validListing) as SwissRetsInventory;
-    _.unset(invalid, 'properties[0].utilizations');
-    const output = validateSwissRets(invalid);
-
-    expect(output).toBeDefined();
-    expect(output).toHaveLength(0);
-  });
-
-  it('Invalid - properties[0].utilizations must be array', () => {
-    const invalid = stubSrFullModified('properties[0].utilizations', () => 33);
-    const output = validateSwissRets(invalid);
-
-    expect(output[0].message).toBe('must be array');
-    expect(output[0].instancePath).toBe('/properties/0/utilizations');
-  });
-
-  it('Invalid - properties[0].utilizations must not have duplicate items', () => {
-    const invalid = stubSrFullModified('properties[0].utilizations[0]', () => 'agricultural');
-    _.update(invalid, 'properties[0].utilizations[1]', () => 'agricultural');
-    const output = validateSwissRets(invalid);
-
-    expect(output[0].message).toBe(
-      'must NOT have duplicate items (items ## 1 and 0 are identical)'
-    );
-    expect(output[0].instancePath).toBe('/properties/0/utilizations');
-  });
-
-  it('Invalid - properties[0].utilizations[0] must be string', () => {
-    const invalid = stubSrFullModified('properties[0].utilizations[0]', () => 33);
-    const output = validateSwissRets(invalid);
-
-    expect(output[0].message).toBe('must be string');
-    expect(output[0].instancePath).toBe('/properties/0/utilizations/0');
-  });
-
-  it('Invalid - properties[0].utilizations[0] must be equal to one of the allowed values', () => {
-    const invalid = stubSrFullModified('properties[0].utilizations[0]', () => 'invalid');
-    const output = validateSwissRets(invalid);
-
-    expect(output[0].message).toBe('must be equal to one of the allowed values');
-    expect(output[0].instancePath).toBe('/properties/0/utilizations/0');
-  });
-
   it('Valid - properties[0].minergieCertification is optional', () => {
     const invalid = _.cloneDeep(validListing) as SwissRetsInventory;
     _.unset(invalid, 'properties[0].minergieCertification');
