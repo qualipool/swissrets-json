@@ -68,10 +68,9 @@
               "title": "Person",
               "description": "Contact person for questions and typically responsible for making appointments. This contact is typicaly presented publicly."
             },
-            "inquiryPerson": {
-              "$ref": "#/$defs/personType",
-              "title": "Person",
-              "description": "The person responsible for receiving inquiries and applications. This person should not be presented publicly and is only intended as an indirect recipient using an online form or similar."
+            "inquiryEmail": {
+              "title": "The emailaddress dedicated for receiving inquiries and applications. This email address should not be presented publicly and is only intended as an indirect recipient using an online form or similar.",
+              "$ref": "#/$defs/emailType"
             }
           }
         },
@@ -598,6 +597,7 @@
           "additionalProperties": false,
           "properties": {
             "inquiryEmail": {
+              "title": "The emailaddress dedicated for receiving inquiries and applications. This email address should not be presented publicly and is only intended as an indirect recipient using an online form or similar.",
               "$ref": "#/$defs/emailType"
             },
             "organization": {

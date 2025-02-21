@@ -57,6 +57,10 @@ Please review and follow the [Code of conduct](./CODE_OF_CONDUCT.md).
 
 Please report any unacceptable behaviour to the maintainers.
 
+## Migration from XML to JSON standard
+
+Find the guidelines for the migration from the XML standard in the [Migration Guide](./MIGRATION-GUIDE.md).
+
 ## License
 
 [MIT](./LICENSE.md)

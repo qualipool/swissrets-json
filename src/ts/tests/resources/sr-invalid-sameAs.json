@@ -284,16 +284,6 @@
           "phone": "+41446252222",
           "gender": "",
           "note": "www.example.com"
-        },
-        "inquiryPerson": {
-          "function": "",
-          "givenName": "",
-          "familyName": "",
-          "email": "test@example.com",
-          "mobile": "+41446252222",
-          "phone": "+41446252222",
-          "gender": "",
-          "note": ""
         }
       },
       "availability": {
