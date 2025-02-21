@@ -8,7 +8,7 @@ describe('sample files should match SwissRetsVersion.current', () => {
     'Valid - sr-valid',
     (file: string) => {
       const testdata = provideTestData(file);
-      expect(testdata.generator.version).toEqual(SwissRetsVersion.current);
+      expect(testdata.generator.version).toEqual(SwissRetsVersion.latest);
     }
   );
 
@@ -17,7 +17,7 @@ describe('sample files should match SwissRetsVersion.current', () => {
       .readFileSync(path.resolve(__dirname, `../../../package.json`))
       .toString();
     const testdata = JSON.parse(packagefile);
-    expect(testdata.version.indexOf(SwissRetsVersion.current)).toEqual(0);
+    expect(testdata.version.indexOf(SwissRetsVersion.latest)).toEqual(0);
   });
 });
 
