@@ -395,28 +395,6 @@
           },
           "additionalProperties": false
         },
-        "utilizations": {
-          "type": "array",
-          "minItems": 0,
-          "uniqueItems": true,
-          "description": "Prioritized sequence for the intended utilization of the property, main comes first.",
-          "items": {
-            "type": "string",
-            "title": "PropertyUtilization",
-            "enum": [
-              "agricultural",
-              "commercial",
-              "construction",
-              "gastronomy",
-              "industrial",
-              "investment",
-              "parking",
-              "residential",
-              "storage",
-              "vacation"
-            ]
-          }
-        },
         "minergieCertification": {
           "title": "MinergieCertificationType",
           "description": "Quality label for new and refurbished low-energy-consumption buildings.",

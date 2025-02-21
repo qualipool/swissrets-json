@@ -474,10 +474,6 @@ export interface Property {
    */
   unitReferenceId?: string;
   /**
-   * Prioritized sequence for the intended utilization of the property, main comes first.
-   */
-  utilizations?: PropertyUtilization[];
-  /**
    * Can should only be used for presentational purposes publishers tend to present the
    * referenceId if this one is missing
    */
@@ -1646,17 +1642,4 @@ export interface PropertySeller {
 export enum OfferType {
   Buy = 'buy',
   Rent = 'rent'
-}
-
-export enum PropertyUtilization {
-  Agricultural = 'agricultural',
-  Commercial = 'commercial',
-  Construction = 'construction',
-  Gastronomy = 'gastronomy',
-  Industrial = 'industrial',
-  Investment = 'investment',
-  Parking = 'parking',
-  Residential = 'residential',
-  Storage = 'storage',
-  Vacation = 'vacation'
 }
