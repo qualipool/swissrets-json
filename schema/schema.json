@@ -1689,7 +1689,7 @@
       "enum": ["applies", "does-not-apply", "unknown"]
     },
     "availabilityStateType": {
-      "title": "AvailabilityStateType",
+      "title": "AvailabilityState",
       "description": "Lifecycle state of properties.",
       "type": "string",
       "enum": ["active", "private", "reference", "reserved", "taken"]
