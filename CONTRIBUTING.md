@@ -53,7 +53,7 @@ The schema file is the master for the model and documentation files. Do not edit
 
 ### Generating the html documentation from the json-schema
 1. Open a shell in the project root.
-1. Execute `generate-schema-doc schema/schema.json docs/index.html` to generate the model.
+1. Execute `generate-schema-doc schema/swissRetsSchema.json docs/index.html` to generate the model.
 
 ## Coding priciples
 _Mainly targeting the ./schema/schema.json_
@@ -83,7 +83,7 @@ SwissRETS is easy to use
 - Try to write selfspeaking code, to avoid documentation
 
 ## Naming things
--> schema/schema.json
+-> schema/swissRetsSchema.json
 
 ### General naming rules
 - use real english words
