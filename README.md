@@ -14,7 +14,6 @@ Check out the schema [documentation](https://qualipool.github.io/swissrets-json/
 
 ### Referencing the package
 
-* Create an `.npmrc` file with content `@qualipool:registry=https://npm.pkg.github.com`
 * Add the package with `npm add @qualipool/swissrets-json`
 
 ### Using the typescript schema validator
