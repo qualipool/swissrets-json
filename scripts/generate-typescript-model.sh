@@ -4,7 +4,7 @@
 # Please avoid manual modifications to 'swissrets-model.ts' and instead update the JSON schema,
 # then run 'yarn generate-model' to reflect those changes in the generated TypeScript model.
 model=src/ts/model/swissrets-model.ts
-schema=schema/schema.json
+schema=schema/swissRetsSchema.json
 reduced_schema=${schema}.reduced
 printf "\
 /* eslint-disable max-lines */

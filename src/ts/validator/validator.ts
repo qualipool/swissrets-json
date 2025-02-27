@@ -1,14 +1,13 @@
-import fs from 'fs';
-import path from 'path';
-
 import AjvFormats from 'ajv-formats';
-import Ajv2020, { KeywordDefinition, Schema } from 'ajv/dist/2020';
+import Ajv2020, { KeywordDefinition } from 'ajv/dist/2020';
 
 import { each } from 'lodash';
 
 import { SwissRetsInventory } from '../model/swissrets-model';
 import { allCustomValidators } from '../validator/custom-validation';
 import { ErrorDto } from '../validator/validator-types';
+
+import schema from '../../../schema/swissRetsSchema.json';
 
 export type SwissRetsString = string;
 
@@ -37,13 +36,7 @@ export const validateSwissRets = (
   const jsonObject: SwissRetsInventory =
     swissretsJson instanceof Object ? swissretsJson : JSON.parse(swissretsJson);
 
-  ajv2020Instance.validate(provideSchema(), jsonObject);
+  ajv2020Instance.validate(schema, jsonObject);
 
   return (ajv2020Instance.errors as unknown as ErrorDto[]) || [];
-};
-
-const provideSchema = (): Schema => {
-  const filePath = path.resolve(__dirname, `../../../schema/schema.json`);
-  const schema = fs.readFileSync(filePath).toString();
-  return JSON.parse(schema) as Schema;
 };
