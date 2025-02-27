@@ -33,6 +33,6 @@ jobs:
       - name: Copy documentation to the dist folder
         run: mkdir dist/docs & cp -a docs/. dist/docs
       - name: Publish the package
-        run: npm publish
+        run: npm publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
