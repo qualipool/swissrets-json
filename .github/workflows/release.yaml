@@ -49,7 +49,7 @@ jobs:
           dry_run: true
           per_branch: true
           bump: ${{ github.event.inputs.semver }}
-          github_token: ${{ github.token }}
+          github_token: ${{ steps.releaser-app-token.outputs.token }}
 
       - name: Set git user and email
         uses: fregante/setup-git-user@024bc0b8e177d7e77203b48dab6fb45666854b35 # v2
