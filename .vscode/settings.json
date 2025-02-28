@@ -6,15 +6,7 @@
   "editor.formatOnSave": false,
   "eslint.validate": ["javascript", "typescript", "html", "json"],
   "eslint.useFlatConfig": true,
-  "[javascript]": {
-    "editor.tabSize": 2
-  },
-  "[typescript]": {
-    "editor.tabSize": 2
-  },
-  "[json]": {
-    "editor.tabSize": 2
-  },
+  "editor.tabSize": 2,
   "jest.runMode": "on-demand",
   "editor.rulers": [100],
   "files.trimTrailingWhitespace": true,
