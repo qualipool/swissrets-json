@@ -59,3 +59,105 @@ jobs:
         with:
           version: ${{ steps.next_version.outputs.version }}
 
+      - name: Commit files, create tag and push to remote
+        uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9.1.4
+        with:
+          message: ${{ steps.next_version.outputs.version }}
+          default_author: user_info
+          push: 'true'
+          tag: v${{ steps.next_version.outputs.version }}
+
+      ######
+      ## Build package and publish it to GitHub packages
+      ######
+      - name: Install dependencies
+        run: npm ci
+      - name: Verify the integrity of signatures for installed dependencies
+        run: npm audit signatures
+      - name: Build the package
+        run: npm run build
+      - name: Copy documentation to the dist folder
+        run: mkdir dist/docs & cp -a docs/. dist/docs
+      #- name: Publish the package
+      #  run: npm publish --access=public
+      #  env:
+      #    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      ######
+      ## Create GitHub release and release notes
+      ######
+      - name: Prepare release notes
+        id: changelog_builder
+        uses: mikepenz/release-changelog-builder-action@be351b03e64e3d77ebb9b64b4d130436be1c02be # v5
+        with:
+          # required as by default it uses ref from workflow start but that doesn't include the latest tag
+          toTag: v${{ steps.next_version.outputs.version }}
+          configurationJson: |
+            {
+              "categories":[
+                {
+                  "title":"### Breaking changes 💥",
+                  "labels":[
+                    "breaking"
+                  ]
+                },
+                {
+                  "title":"### Features 🤘",
+                  "exclude_labels":[
+                    "dependencies",
+                    "breaking"
+                  ],
+                  "rules":[
+                    {
+                      "pattern":"^(feat|devx|gh)",
+                      "on_property":"title",
+                      "flags":"gui"
+                    }
+                  ]
+                },
+                {
+                  "title":"### Bug fixes 🐛",
+                  "exclude_labels":[
+                    "dependencies",
+                    "breaking"
+                  ],
+                  "rules":[
+                    {
+                      "pattern":"^fix",
+                      "on_property":"title",
+                      "flags":"gui"
+                    }
+                  ]
+                },
+                {
+                  "title":"### Misc 📦",
+                  "labels":[]
+                },
+                {
+                  "title":"### Dependency Updates",
+                  "labels":[
+                    "dependencies"
+                  ]
+                }
+              ],
+              "label_extractor":[
+                {
+                  "pattern":"^.+!:.+",
+                  "on_property":"title",
+                  "target":"breaking",
+                  "flags":"gui"
+                }
+              ],
+              "template":"## VERSION: #{{TO_TAG}}\n\n#{{CHANGELOG}}",
+              "pr_template":"* #{{TITLE}} in ##{{NUMBER}}"
+            }
+
+      - name: Create github release
+        uses: ncipollo/release-action@cdcc88a9acf3ca41c16c37bb7d21b9ad48560d87 # v1
+        with:
+          body: ${{ steps.changelog_builder.outputs.changelog }}
+          # artifacts: dist.tgz, README.md
+          # needs to be set as by default the action doesn't see a tag as most likely it works with the ref when the
+          # workflow was triggered, but since there were changes afterwards, it's not looking in the right place
+          tag: v${{ steps.next_version.outputs.version }}
+
