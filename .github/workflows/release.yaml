@@ -157,6 +157,7 @@ jobs:
         with:
           body: ${{ steps.changelog_builder.outputs.changelog }}
           # artifacts: dist.tgz, README.md
+          artifacts: README.md
           # needs to be set as by default the action doesn't see a tag as most likely it works with the ref when the
           # workflow was triggered, but since there were changes afterwards, it's not looking in the right place
           tag: v${{ steps.next_version.outputs.version }}
