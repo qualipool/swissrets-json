@@ -1,0 +1,24 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.sortImports": "explicit"
+  },
+  "editor.formatOnSave": false,
+  "eslint.validate": ["javascript", "typescript", "html", "json"],
+  "eslint.useFlatConfig": true,
+  "editor.tabSize": 2,
+  "jest.runMode": "on-demand",
+  "editor.rulers": [100],
+  "files.trimTrailingWhitespace": true,
+  "editor.renderWhitespace": "all",
+  "files.insertFinalNewline": true,
+  "files.watcherExclude": {
+    "**/.git/*/**": true,
+    "**/node_modules/*/**": true,
+    "**/cdk-out/*/**": true,
+    "**/dist/*/**": true
+  },
+  "files.associations": {
+    "base-tsconfig.json": "jsonc"
+  }
+}

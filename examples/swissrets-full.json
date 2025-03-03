@@ -1,0 +1,427 @@
+{
+  "created": "2023-03-23T08:11:12Z",
+  "generator": {
+    "name": "CASAGATEWAY",
+    "version": "3.0"
+  },
+  "properties": [
+    {
+      "id": "amIuniqueOrAmI",
+      "visualReferenceId": "h4h4h4hh3h3",
+      "referenceId": "kj3kj3kj38ss",
+      "unitReferenceId": "unitRefId888",
+      "externalReference": {
+        "refProperty": "refProperty123",
+        "refHouse": "refHouse123",
+        "refObject": "refObject123"
+      },
+      "type": "buy",
+      "address": {
+        "countryCode": "CH",
+        "locality": "Bern",
+        "region": "BE",
+        "postalCode": "3000",
+        "postOfficeBoxNumber": "3344",
+        "street": "Lenggasse",
+        "streetNumber": "44",
+        "streetAddition": "d",
+        "subunit": 12,
+        "geo": {
+          "longitude": 9.417473,
+          "latitude": 47.4408258,
+          "elevation": 128
+        }
+      },
+      "author": "Charles Dickens",
+      "availability": {
+        "state": "private",
+        "start": "2023-03-23T08:11:12Z",
+        "expiration": "2023-03-23T08:11:12Z"
+      },
+      "bfs": {
+        "egid": "123",
+        "ewid": "456",
+        "egrid": "78"
+      },
+      "buildingZones": "",
+      "categories": ["apartment", "farm-house"],
+      "characteristics": {
+        "areaBwf": 3
+      },
+      "created": "2023-03-23T08:11:12Z",
+      "modified": "2023-03-23T08:11:12Z",
+      "development": "partial",
+      "heating": {
+        "generation": "electricity",
+        "distribution": "floor"
+      },
+      "localizations": [
+        {
+          "languageCode": "de",
+          "title": "Doppelhaushälfte",
+          "excerpt": "Schöne Doppelhaushälfte",
+          "description": "Diese Doppelhaushälfte befindet an der nördlichen Dorfeinfahrt in einem familienfreundlichen Wohnquartier. <br />Die Sackgasse wird ausschliesslich von den Anwohnern benutzt.Öffentliche Verkehrsmittel, Einkaufsmöglichkeiten, Kindergarten und Schulen erreicht man bequem über das Magdener Fusswegnetz.",
+          "attachments": {
+            "images": [
+              {
+                "url": "http://www.example.com/example.jpg",
+                "title": "",
+                "description": "",
+                "mimeType": ""
+              }
+            ],
+            "logos": [
+              {
+                "url": "http://www.example.com/example.jpg",
+                "mimeType": ""
+              }
+            ],
+            "documents": [
+              {
+                "url": "http://www.example.com/example.jpg",
+                "title": "",
+                "mimeType": ""
+              }
+            ],
+            "plans": [
+              {
+                "url": "http://www.example.com/example.jpg",
+                "title": "",
+                "mimeType": ""
+              }
+            ],
+            "landRegisterExtracts": [
+              {
+                "url": "http://www.example.com/example.jpg",
+                "title": "",
+                "mimeType": ""
+              }
+            ],
+            "directLinks": [
+              {
+                "url": "http://www.example.com/example.jpg",
+                "title": ""
+              }
+            ],
+            "links": [
+              {
+                "url": "http://www.example.com/example.jpg",
+                "title": ""
+              }
+            ],
+            "virtualTourLinks": [
+              {
+                "url": "http://www.example.com/example.jpg",
+                "title": ""
+              }
+            ],
+            "youTubeLinks": [
+              {
+                "url": "http://www.example.com/example.jpg",
+                "title": ""
+              }
+            ]
+          },
+          "visitInformation": "Besichtigung vor Ort",
+          "events": [
+            {
+              "name": "Event X",
+              "start": "2023-03-23T08:11:12Z",
+              "end": "2023-03-23T08:11:12Z",
+              "location": "Am Hauseingang",
+              "summary": "Bitte am Hauseingang versammeln."
+            }
+          ]
+        }
+      ],
+      "minergieCertification": "Minergie-P-Eco",
+      "parcelNumbers": "33A",
+      "prices": {
+        "currency": "CHF",
+        "rent": {
+          "gross": 33,
+          "net": 22,
+          "extra": 4,
+          "interval": "month",
+          "referring": "all"
+        },
+        "buy": {
+          "price": 66,
+          "extra": 3,
+          "wirPercentage": 20,
+          "referring": "all"
+        },
+        "auction": {
+          "startPrice": 444,
+          "startDate": "2023-03-23T08:11:12Z",
+          "expiration": "2023-03-23T08:11:12Z"
+        },
+        "deposit": {
+          "amount": 444,
+          "type": "bank-guarantee"
+        },
+        "additionalOffers": [
+          {
+            "type": "parking-garage",
+            "interval": "month",
+            "price": 333
+          }
+        ]
+      },
+      "publishers": [
+        {
+          "id": "smg",
+          "options": [
+            {
+              "key": "some-custom-key",
+              "value": "some custom value",
+              "languageCode": "de",
+              "start": "2023-03-23T08:11:12Z",
+              "expiration": "2023-03-23T08:11:12Z"
+            }
+          ],
+          "promotions": [
+            {
+              "name": "SMG-TL",
+              "start": "2023-03-23T08:11:12Z",
+              "expiration": "2023-03-23T08:11:12Z"
+            },
+            {
+              "name": "SMG-PL",
+              "start": "2023-03-23T08:11:12Z",
+              "expiration": "2023-03-23T08:11:12Z"
+            }
+          ]
+        }
+      ],
+      "seller": {
+        "organization": {
+          "id": "smg-agency-id-123",
+          "address": {
+            "countryCode": "CH",
+            "locality": "Rheinfelden",
+            "region": "AG",
+            "postalCode": "4310",
+            "postOfficeBoxNumber": "123",
+            "street": "Hauptstrasse",
+            "streetNumber": "44",
+            "streetAddition": "d",
+            "subunit": 12,
+            "geo": {
+              "latitude": 43.5417,
+              "longitude": 8.5417,
+              "elevation": 128
+            }
+          },
+          "legalName": "Demo AG",
+          "brand": "Demo AG",
+          "email": "test@example.com",
+          "emailRem": "test@example.com",
+          "phone": "+41446252222",
+          "mobile": "+41446252222",
+          "website": {
+            "url": "http://www.example.com",
+            "label": "link to website",
+            "title": "website title"
+          }
+        },
+        "contactPerson": {
+          "function": "",
+          "givenName": "",
+          "familyName": "",
+          "email": "test@example.com",
+          "mobile": "+41446252222",
+          "phone": "+41446252222",
+          "gender": "",
+          "note": ""
+        },
+        "visitPerson": {
+          "function": "",
+          "givenName": "",
+          "familyName": "",
+          "email": "test@example.com",
+          "mobile": "+41446252222",
+          "phone": "+41446252222",
+          "gender": "",
+          "note": ""
+        }
+      }
+    }
+  ],
+  "projects": [
+    {
+      "id": "123",
+      "referenceId": "kj31h4k1",
+      "seller": {
+        "organization": {
+          "id": "$khj##",
+          "address": {
+            "countryCode": "CH",
+            "locality": "Some locality",
+            "region": "Some region",
+            "postalCode": "77000",
+            "postOfficeBoxNumber": "3344",
+            "street": "Some street",
+            "streetNumber": "44",
+            "streetAddition": "d",
+            "subunit": 12,
+            "geo": {
+              "latitude": 43.5417,
+              "longitude": 8.5417,
+              "elevation": 128
+            }
+          },
+          "legalName": "x",
+          "brand": "y",
+          "email": "test@example.com",
+          "emailRem": "test@example.com",
+          "phone": "+41446252222",
+          "mobile": "+41446252222",
+          "website": {
+            "url": "http://www.example.com",
+            "label": "link to website",
+            "title": "website title"
+          }
+        },
+        "contactPerson": {
+          "function": "",
+          "givenName": "",
+          "familyName": "",
+          "email": "test@example.com",
+          "mobile": "+41446252222",
+          "phone": "+41446252222",
+          "gender": "",
+          "note": "www.example.com"
+        }
+      },
+      "availability": {
+        "state": "private",
+        "start": "2023-03-23T08:11:12Z",
+        "expiration": "2023-03-23T08:11:12Z"
+      },
+      "constructionStatus": "under-construction",
+      "characteristics": {
+        "areaSiaNfFrom": 1,
+        "areaSiaNfTo": 1,
+        "areaBwfFrom": 1,
+        "areaBwfTo": 1,
+        "numberOfRoomsFrom": 1,
+        "numberOfRoomsTo": 1,
+        "numberOfResidentialUnits": 1,
+        "numberOfCommercialUnits": 1
+      },
+      "address": {
+        "countryCode": "CH",
+        "locality": "Some locality",
+        "region": "Some region",
+        "postalCode": "77000",
+        "postOfficeBoxNumber": "3344",
+        "street": "4444444",
+        "streetNumber": "44",
+        "streetAddition": "d",
+        "subunit": 12,
+        "geo": {
+          "latitude": 47.3769,
+          "longitude": 8.5417,
+          "elevation": 128
+        }
+      },
+      "prices": {
+        "currency": "CHF",
+        "rent": {
+          "netFrom": 33,
+          "netTo": 22,
+          "interval": "month",
+          "referring": "all"
+        },
+        "buy": {
+          "priceFrom": 66,
+          "priceTo": 3,
+          "referring": "all"
+        }
+      },
+      "localizations": [
+        {
+          "languageCode": "de",
+          "title": "",
+          "excerpt": "blah blah",
+          "description": "",
+          "attachments": {
+            "images": [
+              {
+                "url": "http://www.example.com/example.jpg",
+                "title": "",
+                "description": "",
+                "mimeType": ""
+              }
+            ],
+            "logos": [
+              {
+                "url": "http://www.example.com/example.jpg",
+                "mimeType": ""
+              }
+            ],
+            "documents": [
+              {
+                "url": "http://www.example.com/example.jpg",
+                "title": "",
+                "mimeType": ""
+              }
+            ],
+            "plans": [
+              {
+                "url": "http://www.example.com/example.jpg",
+                "title": "",
+                "mimeType": ""
+              }
+            ],
+            "landRegisterExtracts": [
+              {
+                "url": "http://www.example.com/example.jpg",
+                "title": "",
+                "mimeType": ""
+              }
+            ],
+            "directLinks": [
+              {
+                "url": "http://www.example.com/example.jpg",
+                "title": ""
+              }
+            ],
+            "links": [
+              {
+                "url": "http://www.example.com/example.jpg",
+                "title": ""
+              }
+            ],
+            "virtualTourLinks": [
+              {
+                "url": "http://www.example.com/example.jpg",
+                "title": ""
+              }
+            ],
+            "youTubeLinks": [
+              {
+                "url": "http://www.example.com/example.jpg",
+                "title": ""
+              }
+            ]
+          }
+        }
+      ],
+      "units": [
+        {
+          "referenceId": "unitRefId888",
+          "id": "",
+          "localizations": [
+            {
+              "languageCode": "de",
+              "title": "Some unit title"
+            }
+          ],
+          "characteristics": [{ "numberOfFloors": 3 }]
+        }
+      ]
+    }
+  ]
+}

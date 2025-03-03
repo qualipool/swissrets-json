@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+
+    // Modules
+    "paths": {
+      "src/ts/*": ["./src/ts/*"],
+      "schema/*": ["./schema/*"],
+      "examples/*": ["./examples/*"]
+    },
+
+    // Type Checking
+    "allowUnreachableCode": false,
+    "exactOptionalPropertyTypes": false, // recommended, since TS 4.4 (but leads to lots of additional code)
+    "strict": true,
+
+    // Modules
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "resolveJsonModule": true, // allows importing .json and geneates a type for the import
+    "types": ["node", "jest"],
+
+    // Emit
+    "declaration": true,
+    "importHelpers": true,
+    "sourceMap": true,
+
+    // Language and Environment
+    "lib": ["esnext"],
+    "target": "es2022", // https://node.green/#ES2022  Node 18 supports all of es2022
+
+    // Completeness
+    "skipLibCheck": true // recommended
+  },
+
+  // Top Level
+  "include": ["src/**/*.ts", "examples/*.json", "schema/*.json", "global.d.ts"]
+}

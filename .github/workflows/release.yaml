@@ -1,0 +1,165 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      semver:
+        type: choice
+        required: true
+        default: patch
+        options: [patch, minor, major]
+        description: The semver of the release.
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+      pull-requests: write
+      checks: write
+    steps:
+      - name: Get releaser app token
+        id: releaser-app-token
+        uses: actions/create-github-app-token@a5be4722a6091c4e20293de271822a5532f23326
+        with:
+          app-id: ${{ secrets.RELEASER_APP_ID }}
+          private-key: ${{ secrets.RELEASER_APP_KEY }}
+
+      - uses: actions/checkout@v4
+        with:
+            fetch-depth: 0
+            token: ${{ steps.releaser-app-token.outputs.token }}
+      # Setup .npmrc file to publish to GitHub Packages
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@qualipool'
+
+        ######
+        ## Calculate next version based on user semver input
+        ## Update version and create tag and push to main
+        ######
+      - name: Calculate next version based on semver input
+        id: next_version
+        uses: zwaldowski/semver-release-action@a6a8309186ccf60c52ea2463a723c78d3b924577 # v4
+        with:
+          preid: beta
+          dry_run: true
+          per_branch: true
+          bump: ${{ github.event.inputs.semver }}
+          github_token: ${{ steps.releaser-app-token.outputs.token }}
+
+      - name: Set git user and email
+        uses: fregante/setup-git-user@024bc0b8e177d7e77203b48dab6fb45666854b35 # v2
+
+      - name: Bump version in package.json
+        uses: reedyuk/npm-version@15e0d016f632fe38bbb704910b8359f23262deb7 # 1.2.2
+        with:
+          version: ${{ steps.next_version.outputs.version }}
+
+      - name: Commit files, create tag and push to remote
+        uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9.1.4
+        with:
+          message: ${{ steps.next_version.outputs.version }}
+          default_author: user_info
+          push: 'true'
+          tag: v${{ steps.next_version.outputs.version }}
+
+      ######
+      ## Build package and publish it to GitHub packages
+      ######
+      - name: Install dependencies
+        run: npm ci
+      - name: Verify the integrity of signatures for installed dependencies
+        run: npm audit signatures
+      - name: Build the package
+        run: npm run build
+      - name: Copy documentation to the dist folder
+        run: mkdir dist/docs & cp -a docs/. dist/docs
+      #- name: Publish the package
+      #  run: npm publish --access=public
+      #  env:
+      #    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      ######
+      ## Create GitHub release and release notes
+      ######
+      - name: Prepare release notes
+        id: changelog_builder
+        uses: mikepenz/release-changelog-builder-action@be351b03e64e3d77ebb9b64b4d130436be1c02be # v5
+        with:
+          # required as by default it uses ref from workflow start but that doesn't include the latest tag
+          toTag: v${{ steps.next_version.outputs.version }}
+          configurationJson: |
+            {
+              "categories":[
+                {
+                  "title":"### Breaking changes 💥",
+                  "labels":[
+                    "breaking"
+                  ]
+                },
+                {
+                  "title":"### Features 🤘",
+                  "exclude_labels":[
+                    "dependencies",
+                    "breaking"
+                  ],
+                  "rules":[
+                    {
+                      "pattern":"^(feat|devx|gh)",
+                      "on_property":"title",
+                      "flags":"gui"
+                    }
+                  ]
+                },
+                {
+                  "title":"### Bug fixes 🐛",
+                  "exclude_labels":[
+                    "dependencies",
+                    "breaking"
+                  ],
+                  "rules":[
+                    {
+                      "pattern":"^fix",
+                      "on_property":"title",
+                      "flags":"gui"
+                    }
+                  ]
+                },
+                {
+                  "title":"### Misc 📦",
+                  "labels":[]
+                },
+                {
+                  "title":"### Dependency Updates",
+                  "labels":[
+                    "dependencies"
+                  ]
+                }
+              ],
+              "label_extractor":[
+                {
+                  "pattern":"^.+!:.+",
+                  "on_property":"title",
+                  "target":"breaking",
+                  "flags":"gui"
+                }
+              ],
+              "template":"## VERSION: #{{TO_TAG}}\n\n#{{CHANGELOG}}",
+              "pr_template":"* #{{TITLE}} in ##{{NUMBER}}"
+            }
+
+      - name: Create github release
+        uses: ncipollo/release-action@cdcc88a9acf3ca41c16c37bb7d21b9ad48560d87 # v1
+        with:
+          body: ${{ steps.changelog_builder.outputs.changelog }}
+          # artifacts: dist.tgz, README.md
+          artifacts: README.md
+          # needs to be set as by default the action doesn't see a tag as most likely it works with the ref when the
+          # workflow was triggered, but since there were changes afterwards, it's not looking in the right place
+          tag: v${{ steps.next_version.outputs.version }}
+
