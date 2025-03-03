@@ -30,8 +30,7 @@ Thank you for contributing to SwissRETS
 1. A maintainer will then take care about merging the pull request.
 
 ## Release process (maintainer only)
-1. Increase the version number according to [semver](http://semver.org/) using `npm version patch|preminor|minor|premajor|major [--preid alpha|beta]`.
-1. Create a (pre-)release in Github with matching version number in the release name. A new Github package will automatically be created for the given release.
+1. Execute the ['Release' action](https://github.com/qualipool/swissrets-json/actions/workflows/release.yaml). A Github (pre-)release and [npm package](https://www.npmjs.com/package/@qualipool/swissrets-json) will automatically be created by the process.
 
 ## Developing - before you start
 
