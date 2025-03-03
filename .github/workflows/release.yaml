@@ -46,7 +46,7 @@ jobs:
         id: next_version
         uses: zwaldowski/semver-release-action@a6a8309186ccf60c52ea2463a723c78d3b924577 # v4
         with:
-          preid: beta
+          preid: alpha
           dry_run: true
           per_branch: true
           bump: ${{ github.event.inputs.semver }}
@@ -79,10 +79,10 @@ jobs:
         run: npm run build
       - name: Copy documentation to the dist folder
         run: mkdir dist/docs & cp -a docs/. dist/docs
-      #- name: Publish the package
-      #  run: npm publish --access=public
-      #  env:
-      #    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish the package
+        run: npm publish --access=public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       ######
       ## Create GitHub release and release notes
@@ -157,8 +157,6 @@ jobs:
         uses: ncipollo/release-action@cdcc88a9acf3ca41c16c37bb7d21b9ad48560d87 # v1
         with:
           body: ${{ steps.changelog_builder.outputs.changelog }}
-          # artifacts: dist.tgz, README.md
-          artifacts: README.md
           # needs to be set as by default the action doesn't see a tag as most likely it works with the ref when the
           # workflow was triggered, but since there were changes afterwards, it's not looking in the right place
           tag: v${{ steps.next_version.outputs.version }}
