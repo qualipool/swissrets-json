@@ -34,6 +34,7 @@ export interface Project {
    * Characteristics and ranges relevant to entire project.
    */
   characteristics?: ProjectCharacteristics;
+  constructionDate?: string;
   /**
    * Construction status of project.
    */
@@ -115,14 +116,546 @@ export enum State {
  * Characteristics and ranges relevant to entire project.
  */
 export interface ProjectCharacteristics {
+  agriculture?: string;
+  airFiltrationSystem?: string;
+  amphibiousCar?: string;
   areaBwfFrom?: number;
   areaBwfTo?: number;
   areaSiaNfFrom?: number;
   areaSiaNfTo?: number;
+  automation?: string;
+  backupWaterSystem?: string;
+  bakery?: string;
+  bar?: string;
+  barbecue?: string;
+  beachGames?: string;
+  bikes?: string;
+  bookshop?: string;
+  bowlingGreen?: string;
+  brewery?: string;
+  busHub?: string;
+  businessCenter?: string;
+  butcher?: string;
+  café?: string;
+  camping?: string;
+  canoe?: string;
+  caretakerHouse?: string;
+  caterer?: string;
+  cDPlayer?: string;
+  cheesemonger?: string;
+  chemist?: string;
+  clothes?: string;
+  coat?: string;
+  coffeemaker?: string;
+  coldWater?: string;
+  commercialServices?: string;
+  commissary?: string;
+  computer?: string;
+  computerNetwork?: string;
+  condominiumGarden?: string;
+  confectioner?: string;
+  connectedThermostat?: string;
+  connection?: string;
+  conventionCenter?: string;
+  cosmetician?: string;
+  crawlSpace?: string;
+  culture?: string;
+  dayCare?: string;
+  decoration?: string;
+  defibrillator?: string;
+  diving?: string;
+  doctor?: string;
+  doubleFlowVentilation?: string;
+  droppedCeiling?: string;
+  drugstore?: string;
+  dVDPlayer?: string;
+  electricAwnings?: string;
+  electricGate?: string;
+  electricShutters?: string;
+  engineGenerator?: string;
+  fabric?: string;
+  fireAlarmSystem?: string;
+  fireHoseCabinets?: string;
+  fireSprinklerSystem?: string;
+  fishing?: string;
+  fishmongers?: string;
+  floatingPool?: string;
+  florist?: string;
+  flyboard?: string;
+  foodservice?: string;
+  freezer?: string;
+  fruitAndVegetables?: string;
+  funeral?: string;
+  furnitureStore?: string;
+  galetas?: string;
+  gallery?: string;
+  gardenCentre?: string;
+  gas?: string;
+  gasStation?: string;
+  grocer?: string;
+  grocery?: string;
+  groomer?: string;
+  haberdasher?: string;
+  hairdresser?: string;
+  hairDryer?: string;
+  hardwareShop?: string;
+  hasAirConditioning?: ApplicableType;
+  hasAlarm?: ApplicableType;
+  hasAntiTheftAlarm?: ApplicableType;
+  hasApartment?: ApplicableType;
+  hasAtomicShelter?: ApplicableType;
+  hasAtticRoom?: ApplicableType;
+  hasAutomaticWateringSystem?: ApplicableType;
+  hasBabyBed?: ApplicableType;
+  hasBank?: ApplicableType;
+  hasBarn?: ApplicableType;
+  hasBasement?: ApplicableType;
+  hasBathroom?: ApplicableType;
+  hasBathroomLavatory?: ApplicableType;
+  hasBathtub?: ApplicableType;
+  hasBeachAccess?: ApplicableType;
+  hasBicyclePath?: ApplicableType;
+  hasBikeStorage?: ApplicableType;
+  hasBinStorageArea?: ApplicableType;
+  hasBusStop?: ApplicableType;
+  hasCabin?: ApplicableType;
+  hasCafeteria?: ApplicableType;
+  hasCamera?: ApplicableType;
+  hasCarnotzet?: ApplicableType;
+  hasCarpeting?: ApplicableType;
+  hasCarriageHouse?: ApplicableType;
+  hasCentralisedAirConditioning?: ApplicableType;
+  hasCentralisedVentilation?: ApplicableType;
+  hasCentralVacuumCleaner?: ApplicableType;
+  hasCeramicStove?: ApplicableType;
+  hasChildCareCentre?: ApplicableType;
+  hasChimney?: ApplicableType;
+  hasChimneyFlue?: ApplicableType;
+  hasCinema?: ApplicableType;
+  hasCinemaRoom?: ApplicableType;
+  hasCloset?: ApplicableType;
+  hasClothesDryer?: ApplicableType;
+  hasCobblestone?: ApplicableType;
+  hasCommunalPool?: ApplicableType;
+  hasCommunityLaundryRoom?: ApplicableType;
+  hasConcierge?: ApplicableType;
+  hasConcrete?: ApplicableType;
+  hasCorridor?: ApplicableType;
+  hasCourtyard?: ApplicableType;
+  hasCoveredTerrace?: ApplicableType;
+  hasCrossCountrySkiTrail?: ApplicableType;
+  hasCupboard?: ApplicableType;
+  hasCustoms?: ApplicableType;
+  hasDigicode?: ApplicableType;
+  hasDiningRoom?: ApplicableType;
+  hasDiscothèque?: ApplicableType;
+  hasDoublePanedWindows?: ApplicableType;
+  hasDoubleReceptionRoom?: ApplicableType;
+  hasDressingRoom?: ApplicableType;
+  hasElectricParking?: ApplicableType;
+  hasEntrance?: ApplicableType;
+  hasEquippedKitchen?: ApplicableType;
+  hasExteriorLandscaping?: ApplicableType;
+  hasFax?: ApplicableType;
+  hasFence?: ApplicableType;
+  hasFitnessRoom?: ApplicableType;
+  hasFloorHeating?: ApplicableType;
+  hasFunicular?: ApplicableType;
+  hasGarden?: ApplicableType;
+  hasGardenBench?: ApplicableType;
+  hasGardenShelter?: ApplicableType;
+  hasGardian?: ApplicableType;
+  hasGatedEntrance?: ApplicableType;
+  hasGolf?: ApplicableType;
+  hasGolfCourse?: ApplicableType;
+  hasGranite?: ApplicableType;
+  hasGravel?: ApplicableType;
+  hasGreenery?: ApplicableType;
+  hasGreenLandscape?: ApplicableType;
+  hasHallway?: ApplicableType;
+  hasHammam?: ApplicableType;
+  hasHandicapAccess?: ApplicableType;
+  hasIndoorCarPark?: ApplicableType;
+  hasIndoorGarage?: ApplicableType;
+  hasIntercomSystem?: ApplicableType;
+  hasInternetConnection?: ApplicableType;
+  hasJacuzzi?: ApplicableType;
+  hasKitchenCorner?: ApplicableType;
+  hasLake?: ApplicableType;
+  hasLaminate?: ApplicableType;
+  hasLanding?: ApplicableType;
+  hasLibrary?: ApplicableType;
+  hasLinenRoom?: ApplicableType;
+  hasLivingRoom?: ApplicableType;
+  hasMaidsRoom?: ApplicableType;
+  hasMaidsStudio?: ApplicableType;
+  hasMaintenanceRoom?: ApplicableType;
+  hasMarble?: ApplicableType;
+  hasMarina?: ApplicableType;
+  hasMasterBedroom?: ApplicableType;
+  hasMeetingRoom?: ApplicableType;
+  hasMezzanine?: ApplicableType;
+  hasMicrowaveOven?: ApplicableType;
+  hasMooringSpace?: ApplicableType;
+  hasMosquitoNet?: ApplicableType;
+  hasMotorwayEntranceExit?: ApplicableType;
+  hasMuseum?: ApplicableType;
+  hasOutbuilding?: ApplicableType;
+  hasOutdoorCarPark?: ApplicableType;
+  hasOutdoorGarage?: ApplicableType;
+  hasOutdoorLighting?: ApplicableType;
+  hasPark?: ApplicableType;
+  hasParquet?: ApplicableType;
+  hasPatio?: ApplicableType;
+  hasPhotovoltaicPanels?: ApplicableType;
+  hasPlayRoom?: ApplicableType;
+  hasPond?: ApplicableType;
+  hasPoolHouse?: ApplicableType;
+  hasPort?: ApplicableType;
+  hasPostOffice?: ApplicableType;
+  hasPrayerRoom?: ApplicableType;
+  hasPrimarySchool?: ApplicableType;
+  hasPrivateDock?: ApplicableType;
+  hasPrivateLaundryRoom?: ApplicableType;
+  hasRadiatorHeating?: ApplicableType;
+  hasReception?: ApplicableType;
+  hasReceptionRoom?: ApplicableType;
+  hasRestaurants?: ApplicableType;
+  hasRooftopTerrace?: ApplicableType;
+  hasRootCellar?: ApplicableType;
+  hasSatellite?: ApplicableType;
+  hasSauna?: ApplicableType;
+  hasSchools?: ApplicableType;
+  hasSea?: ApplicableType;
+  hasSecomat?: ApplicableType;
+  hasSecondarySchool?: ApplicableType;
+  hasShower?: ApplicableType;
+  hasShowerRoom?: ApplicableType;
+  hasShowerRoomOrLavatory?: ApplicableType;
+  hasSimplePanedWindows?: ApplicableType;
+  hasSkiStorage?: ApplicableType;
+  hasSkiTrail?: ApplicableType;
+  hasSlate?: ApplicableType;
+  hasSolarium?: ApplicableType;
+  hasSportsCentre?: ApplicableType;
+  hasSteamOven?: ApplicableType;
+  hasStockroom?: ApplicableType;
+  hasStone?: ApplicableType;
+  hasStorageRoom?: ApplicableType;
+  hasStove?: ApplicableType;
+  hasStudy?: ApplicableType;
+  hasSuite?: ApplicableType;
+  hasSwedishStove?: ApplicableType;
+  hasSwedishStovePipes?: ApplicableType;
+  hasTar?: ApplicableType;
+  hasTelephone?: ApplicableType;
+  hasTennisCourt?: ApplicableType;
+  hasTerrace?: ApplicableType;
+  hasTile?: ApplicableType;
+  hasTiles?: ApplicableType;
+  hasTrainStation?: ApplicableType;
+  hasTriplePanedWindows?: ApplicableType;
+  hasTripleReceptionRoom?: ApplicableType;
+  hasVideophone?: ApplicableType;
+  hasVillaArea?: ApplicableType;
+  hasVillage?: ApplicableType;
+  hasVineyards?: ApplicableType;
+  hasVisitorCarPark?: ApplicableType;
+  hasVisitorsToilet?: ApplicableType;
+  hasWatchtower?: ApplicableType;
+  hasWaterfront?: ApplicableType;
+  hasWaterSoftner?: ApplicableType;
+  hasWineCellar?: ApplicableType;
+  hasWinterGarden?: ApplicableType;
+  hasWorkroom?: ApplicableType;
+  hasWorkshop?: ApplicableType;
+  helipad?: string;
+  highPower?: string;
+  hob?: string;
+  homeCinema?: string;
+  'hospital/clinic'?: string;
+  hotel?: string;
+  hotWater?: string;
+  householdElectrical?: string;
+  hoverboard?: string;
+  hovercraft?: string;
+  hydraulicPlatform?: string;
+  inflationStation?: string;
+  insurer?: string;
+  interfacing?: string;
+  intermediateFloor?: string;
+  internet?: string;
+  iron?: string;
+  irrigationSprinkler?: string;
+  isBright?: ApplicableType;
+  isBuildingLand?: ApplicableType;
+  isDowntown?: ApplicableType;
+  isFurnished?: ApplicableType;
+  isNearAirport?: ApplicableType;
+  isNearPublicTransportation?: ApplicableType;
+  isSilent?: ApplicableType;
+  jetSki?: string;
+  jeweller?: string;
+  kiteSurf?: string;
+  laundry?: string;
+  lift?: string;
+  linens?: string;
+  linoleum?: string;
+  locksmith?: string;
+  metalShutters?: string;
+  metro?: string;
+  motorizedFlysheet?: string;
+  nightclub?: string;
+  nonFlooding?: string;
+  numberOfBedroomsFrom?: number;
+  numberOfBedroomsTo?: number;
   numberOfCommercialUnits?: number;
   numberOfResidentialUnits?: number;
   numberOfRoomsFrom?: number;
   numberOfRoomsTo?: number;
+  offices?: string;
+  officeSupplies?: string;
+  onMainRoad?: string;
+  optician?: string;
+  outsideCamera?: string;
+  oven?: string;
+  paddle?: string;
+  painting?: string;
+  panel?: string;
+  parentalSuite?: string;
+  parging?: string;
+  perfumery?: string;
+  pergola?: string;
+  petStore?: string;
+  phone?: string;
+  photo?: string;
+  placeOfWorship?: string;
+  porkButcher?: string;
+  press?: string;
+  pressing?: string;
+  pressurizedAir?: string;
+  publicParking?: string;
+  publicPool?: string;
+  realEstateAgent?: string;
+  'reception24/7'?: string;
+  recreation?: string;
+  refrigerator?: string;
+  rJ45Cable?: string;
+  rubber?: string;
+  safe?: string;
+  scooter?: string;
+  seabob?: string;
+  securityDoor?: string;
+  segway?: string;
+  selfEmployed?: string;
+  sexShop?: string;
+  shoes?: string;
+  shoppingCentre?: string;
+  shops?: string;
+  slidingWindows?: string;
+  snack?: string;
+  solarArray?: string;
+  spa?: string;
+  spring?: string;
+  station?: string;
+  supermarket?: string;
+  synagogue?: string;
+  tableware?: string;
+  taxi?: string;
+  teaRoom?: string;
+  television?: string;
+  tGVStation?: string;
+  theater?: string;
+  tobacconist?: string;
+  toilet?: string;
+  tram?: string;
+  travelAgency?: string;
+  tVDistribution?: string;
+  university?: string;
+  vegetableFiber?: string;
+  veranda?: ApplicableType;
+  videoArcade?: string;
+  videoGame?: string;
+  videoSecurity?: string;
+  vinyl?: string;
+  wakeboard?: string;
+  wallCloset?: string;
+  wallpaper?: string;
+  waterFiltrationSystem?: string;
+  waterpark?: string;
+  waterSlide?: string;
+  waterSupply?: string;
+  well?: string;
+  wellDrilling?: string;
+  wharf?: string;
+  whirlpoolTub?: string;
+  windowShade?: string;
+  wiringCloset?: string;
+}
+
+/**
+ * Applicable can have three states, unknown must be treated as default.
+ *
+ * Pets are allowed or not tolerated.
+ *
+ * Has an attic.
+ *
+ * Balcony available.
+ *
+ * Restrictions for modifications apply, like monument protection and similar.
+ *
+ * Availability of cable tv.
+ *
+ * A covered structure used to offer limited protection from rain and snow, for one car.
+ *
+ * A covered structure used to offer limited protection from rain and snow, for two cars.
+ *
+ * Availability of a cellar.
+ *
+ * Whether or not a charging station for e-Cars is provided.
+ *
+ * States if the land is fully developed and ready being built on it.
+ *
+ * Used for building land, states if there is some demolition property on it (or pieces of
+ * it).
+ *
+ * Availability of a dishwasher.
+ *
+ * Availability of an elevator.
+ *
+ * A charging station for e-Cars is provided.
+ *
+ * Availability of a fiber optic connection.
+ *
+ * Includes a framed opening to hold an open fire, indoors.
+ *
+ * Whether or not there is a residential community, sharing the living space.
+ *
+ * Widely used to control the amount of foreigners buying holiday flats in popular regions.
+ *
+ * A shelter for one car.
+ *
+ * A shelter for two cars.
+ *
+ * Subterranean garage for cars.
+ *
+ * A small building for storing garden tools, bicycles, and other equipment.
+ *
+ * Direct visibility of a lake.
+ *
+ * Provides vertical transportation between building floors, levels or decks, and are
+ * commonly found in offices, public buildings and other types of multi-story
+ * accommodation.
+ *
+ * Direct visibility of mountains.
+ *
+ * Has multimedia wiring.
+ *
+ * Has a lovely view, usually from the balcony or the living room.
+ *
+ * An uncovered space for one car or more cars.
+ *
+ * Whether or not a photovoltaic system is provided.
+ *
+ * Has a playground for children nearby.
+ *
+ * A sloping floor, walk, or roadway leading from one level to another, usually to make a
+ * place accessible for wheels.
+ *
+ * Indicates that prospects can visit the property virtually (e.g. with a video-call or
+ * guided virtual-tour hosted by the real estate agent)
+ *
+ * Has a steamer.
+ *
+ * Storeroom, stowage room.
+ *
+ * Availability of a gas connection, usually for heating and cooking.
+ *
+ * A connection to the public electric grid.
+ *
+ * A connection to the public waste water system.
+ *
+ * A connection to the public water supply.
+ *
+ * Personal swimming pool.
+ *
+ * Whether or not a thermal solar collector system is provided.
+ *
+ * A masonry heater or ceramic stove, is a device for warming an interior space usually fed
+ * with wood.
+ *
+ * Dryer for clothes after washing them.
+ *
+ * For washing clothes and other cloth.
+ *
+ * Suitable for families.
+ *
+ * A house situated on the corner of two streets.
+ *
+ * If it's a tear-down property or a site of demolished structures.
+ *
+ * Old and in poor condition, in a state of decay.
+ *
+ * No one used the flat or the building before, since it was built or heavily renovated from
+ * ground up.
+ *
+ * Nearly on a level with the ground.
+ *
+ * Half of a stair elevated story, in a building.
+ *
+ * Preparation for demolition or a part-demolition, all contaminants, doors, windows, floors
+ * and non-load bearing walls were removed.
+ *
+ * Needs to be renewed in order to be fully usable again.
+ *
+ * Needs to be renewed partially in order to be fully usable again.
+ *
+ * Used, but as good as new.
+ *
+ * Situated between two other houses or buildings.
+ *
+ * Modernized means improved, things like a better insulated roof and walls, modern heating
+ * system and similar improvements.
+ *
+ * Newly built house or building.
+ *
+ * Refers to the construction method used until 60-80 years ago.
+ *
+ * Planned for the future.
+ *
+ * Part of a quiet surrounding or neighbourhood.
+ *
+ * Fully renovated, neat, clean and restored.
+ *
+ * Partially renovated or restored.
+ *
+ * Where a person lives part time or less than the majority of the calendar year, typically
+ * a holiday flat, some laws and landlords do not allow this.
+ *
+ * Intentionally missing interior finish in order to allow customization.
+ *
+ * Smoking allowed inside.
+ *
+ * Sunny surroundings, nor trees, mountains or other buildings do shadow.
+ *
+ * Is of temporary use.
+ *
+ * Mainly used for parking slots.
+ *
+ * Properly looked after.
+ *
+ * All aspects are accessible for wheelchair users.
+ *
+ * Built on even grounds.
+ *
+ * Built on a sloping hillside.
+ *
+ * Built on a sloping hillside towards the south.
+ */
+export enum ApplicableType {
+  Applies = 'applies',
+  DoesNotApply = 'does-not-apply',
+  Unknown = 'unknown'
 }
 
 /**
@@ -605,6 +1138,9 @@ export enum PropertyCategory {
  * The cold facts, to represent the property or offer.
  */
 export interface PropertyCharacteristics {
+  agriculture?: string;
+  airFiltrationSystem?: string;
+  amphibiousCar?: string;
   /**
    * If there is a balcony (non ground floor outside area) this field would specify the area
    * in m²
@@ -736,18 +1272,75 @@ export interface PropertyCharacteristics {
    * Pets are allowed or not tolerated.
    */
   arePetsAllowed?: ApplicableType;
+  automation?: string;
+  backupWaterSystem?: string;
+  bakery?: string;
+  bar?: string;
+  barbecue?: string;
+  beachGames?: string;
+  bikes?: string;
+  bookshop?: string;
+  bowlingGreen?: string;
+  brewery?: string;
+  busHub?: string;
+  businessCenter?: string;
+  butcher?: string;
+  café?: string;
+  camping?: string;
+  canoe?: string;
+  caretakerHouse?: string;
+  caterer?: string;
+  cDPlayer?: string;
   /**
    * Height of the rooms in m.
    */
   ceilingHeight?: number;
+  cheesemonger?: string;
+  chemist?: string;
+  clothes?: string;
+  coat?: string;
+  coffeemaker?: string;
+  coldWater?: string;
+  commercialServices?: string;
+  commissary?: string;
+  computer?: string;
+  computerNetwork?: string;
+  condominiumGarden?: string;
+  confectioner?: string;
+  connectedThermostat?: string;
+  connection?: string;
+  conventionCenter?: string;
+  cosmetician?: string;
   /**
    * Carrying capacity for crane in kg.
    */
   craneCapacity?: number;
+  crawlSpace?: string;
+  culture?: string;
+  dayCare?: string;
+  decoration?: string;
+  defibrillator?: string;
+  diving?: string;
+  doctor?: string;
+  doubleFlowVentilation?: string;
+  droppedCeiling?: string;
+  drugstore?: string;
+  dVDPlayer?: string;
+  electricAwnings?: string;
+  electricGate?: string;
+  electricShutters?: string;
   /**
    * Maximum elevator load in kg.
    */
   elevatorLoad?: number;
+  engineGenerator?: string;
+  fabric?: string;
+  fireAlarmSystem?: string;
+  fireHoseCabinets?: string;
+  fireSprinklerSystem?: string;
+  fishing?: string;
+  fishmongers?: string;
+  floatingPool?: string;
   /**
    * Floor number, ground floor is 0, basement floors are negative.
    */
@@ -756,31 +1349,74 @@ export interface PropertyCharacteristics {
    * Maximum floor load in kg/m²
    */
   floorLoad?: number;
+  florist?: string;
+  flyboard?: string;
+  foodservice?: string;
+  freezer?: string;
+  fruitAndVegetables?: string;
+  funeral?: string;
+  furnitureStore?: string;
+  galetas?: string;
+  gallery?: string;
+  gardenCentre?: string;
+  gas?: string;
+  gasStation?: string;
+  grocer?: string;
+  grocery?: string;
+  groomer?: string;
   /**
    * A gross premium is the total premium of an insurance contract before brokerage or
    * discounts have been deducted, in percent.
    */
   grossPremium?: number;
+  haberdasher?: string;
+  hairdresser?: string;
+  hairDryer?: string;
   /**
    * Hall height in m, usually for commercial properties.
    */
   hallHeight?: number;
+  hardwareShop?: string;
+  hasAirConditioning?: ApplicableType;
+  hasAlarm?: ApplicableType;
+  hasAntiTheftAlarm?: ApplicableType;
+  hasApartment?: ApplicableType;
+  hasAtomicShelter?: ApplicableType;
   /**
    * Has an attic.
    */
   hasAttic?: ApplicableType;
+  hasAtticRoom?: ApplicableType;
+  hasAutomaticWateringSystem?: ApplicableType;
+  hasBabyBed?: ApplicableType;
   /**
    * Balcony available.
    */
   hasBalcony?: ApplicableType;
+  hasBank?: ApplicableType;
+  hasBarn?: ApplicableType;
+  hasBasement?: ApplicableType;
+  hasBathroom?: ApplicableType;
+  hasBathroomLavatory?: ApplicableType;
+  hasBathtub?: ApplicableType;
+  hasBeachAccess?: ApplicableType;
+  hasBicyclePath?: ApplicableType;
+  hasBikeStorage?: ApplicableType;
+  hasBinStorageArea?: ApplicableType;
   /**
    * Restrictions for modifications apply, like monument protection and similar.
    */
   hasBuildingLawRestrictions?: ApplicableType;
+  hasBusStop?: ApplicableType;
+  hasCabin?: ApplicableType;
   /**
    * Availability of cable tv.
    */
   hasCableTv?: ApplicableType;
+  hasCafeteria?: ApplicableType;
+  hasCamera?: ApplicableType;
+  hasCarnotzet?: ApplicableType;
+  hasCarpeting?: ApplicableType;
   /**
    * A covered structure used to offer limited protection from rain and snow, for one car.
    */
@@ -789,35 +1425,70 @@ export interface PropertyCharacteristics {
    * A covered structure used to offer limited protection from rain and snow, for two cars.
    */
   hasCarPortDouble?: ApplicableType;
+  hasCarriageHouse?: ApplicableType;
   /**
    * Availability of a cellar.
    */
   hasCellar?: ApplicableType;
+  hasCentralisedAirConditioning?: ApplicableType;
+  hasCentralisedVentilation?: ApplicableType;
+  hasCentralVacuumCleaner?: ApplicableType;
+  hasCeramicStove?: ApplicableType;
   /**
    * Whether or not a charging station for e-Cars is provided.
    */
   hasChargingStation?: ApplicableType;
+  hasChildCareCentre?: ApplicableType;
+  hasChimney?: ApplicableType;
+  hasChimneyFlue?: ApplicableType;
+  hasCinema?: ApplicableType;
+  hasCinemaRoom?: ApplicableType;
+  hasCloset?: ApplicableType;
+  hasClothesDryer?: ApplicableType;
+  hasCobblestone?: ApplicableType;
+  hasCommunalPool?: ApplicableType;
+  hasCommunityLaundryRoom?: ApplicableType;
+  hasConcierge?: ApplicableType;
+  hasConcrete?: ApplicableType;
   /**
    * States if the land is fully developed and ready being built on it.
    */
   hasConnectedBuildingLand?: ApplicableType;
+  hasCorridor?: ApplicableType;
+  hasCourtyard?: ApplicableType;
+  hasCoveredTerrace?: ApplicableType;
+  hasCrossCountrySkiTrail?: ApplicableType;
+  hasCupboard?: ApplicableType;
+  hasCustoms?: ApplicableType;
   /**
    * Used for building land, states if there is some demolition property on it (or pieces of
    * it).
    */
   hasDemolitionProperty?: ApplicableType;
+  hasDigicode?: ApplicableType;
+  hasDiningRoom?: ApplicableType;
+  hasDiscothèque?: ApplicableType;
   /**
    * Availability of a dishwasher.
    */
   hasDishwasher?: ApplicableType;
+  hasDoublePanedWindows?: ApplicableType;
+  hasDoubleReceptionRoom?: ApplicableType;
+  hasDressingRoom?: ApplicableType;
+  hasElectricParking?: ApplicableType;
   /**
    * Availability of an elevator.
    */
   hasElevator?: ApplicableType;
+  hasEntrance?: ApplicableType;
+  hasEquippedKitchen?: ApplicableType;
   /**
    * A charging station for e-Cars is provided.
    */
   hasEvChargingStation?: ApplicableType;
+  hasExteriorLandscaping?: ApplicableType;
+  hasFax?: ApplicableType;
+  hasFence?: ApplicableType;
   /**
    * Availability of a fiber optic connection.
    */
@@ -826,14 +1497,17 @@ export interface PropertyCharacteristics {
    * Includes a framed opening to hold an open fire, indoors.
    */
   hasFireplace?: ApplicableType;
+  hasFitnessRoom?: ApplicableType;
   /**
    * Whether or not there is a residential community, sharing the living space.
    */
   hasFlatSharingCommunity?: ApplicableType;
+  hasFloorHeating?: ApplicableType;
   /**
    * Widely used to control the amount of foreigners buying holiday flats in popular regions.
    */
   hasForeignQuota?: ApplicableType;
+  hasFunicular?: ApplicableType;
   /**
    * A shelter for one car.
    */
@@ -846,19 +1520,57 @@ export interface PropertyCharacteristics {
    * Subterranean garage for cars.
    */
   hasGarageUnderground?: ApplicableType;
+  hasGarden?: ApplicableType;
+  hasGardenBench?: ApplicableType;
   /**
    * A small building for storing garden tools, bicycles, and other equipment.
    */
   hasGardenShed?: ApplicableType;
+  hasGardenShelter?: ApplicableType;
+  hasGardian?: ApplicableType;
+  hasGatedEntrance?: ApplicableType;
+  hasGolf?: ApplicableType;
+  hasGolfCourse?: ApplicableType;
+  hasGranite?: ApplicableType;
+  hasGravel?: ApplicableType;
+  hasGreenery?: ApplicableType;
+  hasGreenLandscape?: ApplicableType;
+  hasHallway?: ApplicableType;
+  hasHammam?: ApplicableType;
+  hasHandicapAccess?: ApplicableType;
+  hasIndoorCarPark?: ApplicableType;
+  hasIndoorGarage?: ApplicableType;
+  hasIntercomSystem?: ApplicableType;
+  hasInternetConnection?: ApplicableType;
+  hasJacuzzi?: ApplicableType;
+  hasKitchenCorner?: ApplicableType;
+  hasLake?: ApplicableType;
   /**
    * Direct visibility of a lake.
    */
   hasLakeView?: ApplicableType;
+  hasLaminate?: ApplicableType;
+  hasLanding?: ApplicableType;
+  hasLibrary?: ApplicableType;
   /**
    * Provides vertical transportation between building floors, levels or decks, and are
    * commonly found in offices, public buildings and other types of multi-story accommodation.
    */
   hasLiftingPlatform?: ApplicableType;
+  hasLinenRoom?: ApplicableType;
+  hasLivingRoom?: ApplicableType;
+  hasMaidsRoom?: ApplicableType;
+  hasMaidsStudio?: ApplicableType;
+  hasMaintenanceRoom?: ApplicableType;
+  hasMarble?: ApplicableType;
+  hasMarina?: ApplicableType;
+  hasMasterBedroom?: ApplicableType;
+  hasMeetingRoom?: ApplicableType;
+  hasMezzanine?: ApplicableType;
+  hasMicrowaveOven?: ApplicableType;
+  hasMooringSpace?: ApplicableType;
+  hasMosquitoNet?: ApplicableType;
+  hasMotorwayEntranceExit?: ApplicableType;
   /**
    * Direct visibility of mountains.
    */
@@ -867,40 +1579,86 @@ export interface PropertyCharacteristics {
    * Has multimedia wiring.
    */
   hasMultimediaWiring?: ApplicableType;
+  hasMuseum?: ApplicableType;
   /**
    * Has a lovely view, usually from the balcony or the living room.
    */
   hasNiceView?: ApplicableType;
+  hasOutbuilding?: ApplicableType;
+  hasOutdoorCarPark?: ApplicableType;
+  hasOutdoorGarage?: ApplicableType;
+  hasOutdoorLighting?: ApplicableType;
+  hasPark?: ApplicableType;
   /**
    * An uncovered space for one car or more cars.
    */
   hasParking?: ApplicableType;
+  hasParquet?: ApplicableType;
+  hasPatio?: ApplicableType;
   /**
    * Whether or not a photovoltaic system is provided.
    */
   hasPhotovoltaic?: ApplicableType;
+  hasPhotovoltaicPanels?: ApplicableType;
   /**
    * Has a playground for children nearby.
    */
   hasPlayground?: ApplicableType;
+  hasPlayRoom?: ApplicableType;
+  hasPond?: ApplicableType;
+  hasPoolHouse?: ApplicableType;
+  hasPort?: ApplicableType;
+  hasPostOffice?: ApplicableType;
+  hasPrayerRoom?: ApplicableType;
+  hasPrimarySchool?: ApplicableType;
+  hasPrivateDock?: ApplicableType;
+  hasPrivateLaundryRoom?: ApplicableType;
+  hasRadiatorHeating?: ApplicableType;
   /**
    * A sloping floor, walk, or roadway leading from one level to another, usually to make a
    * place accessible for wheels.
    */
   hasRamp?: ApplicableType;
+  hasReception?: ApplicableType;
+  hasReceptionRoom?: ApplicableType;
   /**
    * Indicates that prospects can visit the property virtually (e.g. with a video-call or
    * guided virtual-tour hosted by the real estate agent)
    */
   hasRemoteViewings?: ApplicableType;
+  hasRestaurants?: ApplicableType;
+  hasRooftopTerrace?: ApplicableType;
+  hasRootCellar?: ApplicableType;
+  hasSatellite?: ApplicableType;
+  hasSauna?: ApplicableType;
+  hasSchools?: ApplicableType;
+  hasSea?: ApplicableType;
+  hasSecomat?: ApplicableType;
+  hasSecondarySchool?: ApplicableType;
+  hasShower?: ApplicableType;
+  hasShowerRoom?: ApplicableType;
+  hasShowerRoomOrLavatory?: ApplicableType;
+  hasSimplePanedWindows?: ApplicableType;
+  hasSkiStorage?: ApplicableType;
+  hasSkiTrail?: ApplicableType;
+  hasSlate?: ApplicableType;
+  hasSolarium?: ApplicableType;
+  hasSportsCentre?: ApplicableType;
   /**
    * Has a steamer.
    */
   hasSteamer?: ApplicableType;
+  hasSteamOven?: ApplicableType;
+  hasStockroom?: ApplicableType;
+  hasStone?: ApplicableType;
+  hasStorageRoom?: ApplicableType;
   /**
    * Storeroom, stowage room.
    */
   hasStoreRoom?: ApplicableType;
+  hasStove?: ApplicableType;
+  hasStudy?: ApplicableType;
+  hasSuite?: ApplicableType;
   /**
    * Availability of a gas connection, usually for heating and cooking.
    */
@@ -917,27 +1675,71 @@ export interface PropertyCharacteristics {
    * A connection to the public water supply.
    */
   hasSupplyWater?: ApplicableType;
+  hasSwedishStove?: ApplicableType;
+  hasSwedishStovePipes?: ApplicableType;
   /**
    * Personal swimming pool.
    */
   hasSwimmingPool?: ApplicableType;
+  hasTar?: ApplicableType;
+  hasTelephone?: ApplicableType;
+  hasTennisCourt?: ApplicableType;
+  hasTerrace?: ApplicableType;
   /**
    * Whether or not a thermal solar collector system is provided.
    */
   hasThermalSolarCollector?: ApplicableType;
+  hasTile?: ApplicableType;
   /**
    * A masonry heater or ceramic stove, is a device for warming an interior space usually fed
    * with wood.
    */
   hasTiledStove?: ApplicableType;
+  hasTiles?: ApplicableType;
+  hasTrainStation?: ApplicableType;
+  hasTriplePanedWindows?: ApplicableType;
+  hasTripleReceptionRoom?: ApplicableType;
   /**
    * Dryer for clothes after washing them.
    */
   hasTumbleDryer?: ApplicableType;
+  hasVideophone?: ApplicableType;
+  hasVillaArea?: ApplicableType;
+  hasVillage?: ApplicableType;
+  hasVineyards?: ApplicableType;
+  hasVisitorCarPark?: ApplicableType;
+  hasVisitorsToilet?: ApplicableType;
   /**
    * For washing clothes and other cloth.
    */
   hasWashingMachine?: ApplicableType;
+  hasWatchtower?: ApplicableType;
+  hasWaterfront?: ApplicableType;
+  hasWaterSoftner?: ApplicableType;
+  hasWineCellar?: ApplicableType;
+  hasWinterGarden?: ApplicableType;
+  hasWorkroom?: ApplicableType;
+  hasWorkshop?: ApplicableType;
+  helipad?: string;
+  highPower?: string;
+  hob?: string;
+  homeCinema?: string;
+  'hospital/clinic'?: string;
+  hotel?: string;
+  hotWater?: string;
+  householdElectrical?: string;
+  hoverboard?: string;
+  hovercraft?: string;
+  hydraulicPlatform?: string;
+  inflationStation?: string;
+  insurer?: string;
+  interfacing?: string;
+  intermediateFloor?: string;
+  internet?: string;
+  iron?: string;
+  irrigationSprinkler?: string;
+  isBright?: ApplicableType;
+  isBuildingLand?: ApplicableType;
   /**
    * Suitable for families.
    */
@@ -954,11 +1756,13 @@ export interface PropertyCharacteristics {
    * Old and in poor condition, in a state of decay.
    */
   isDilapidated?: ApplicableType;
+  isDowntown?: ApplicableType;
   /**
    * No one used the flat or the building before, since it was built or heavily renovated from
    * ground up.
    */
   isFirstOccupancy?: ApplicableType;
+  isFurnished?: ApplicableType;
   /**
    * Nearly on a level with the ground.
    */
@@ -993,6 +1797,8 @@ export interface PropertyCharacteristics {
    * system and similar improvements.
    */
   isModernized?: ApplicableType;
+  isNearAirport?: ApplicableType;
+  isNearPublicTransportation?: ApplicableType;
   /**
    * Newly built house or building.
    */
@@ -1026,6 +1832,7 @@ export interface PropertyCharacteristics {
    * Intentionally missing interior finish in order to allow customization.
    */
   isShellConstruction?: ApplicableType;
+  isSilent?: ApplicableType;
   /**
    * Smoking allowed inside.
    */
@@ -1050,6 +1857,19 @@ export interface PropertyCharacteristics {
    * All aspects are accessible for wheelchair users.
    */
   isWheelchairAccessible?: ApplicableType;
+  jetSki?: string;
+  jeweller?: string;
+  kiteSurf?: string;
+  laundry?: string;
+  lift?: string;
+  linens?: string;
+  linoleum?: string;
+  locksmith?: string;
+  metalShutters?: string;
+  metro?: string;
+  motorizedFlysheet?: string;
+  nightclub?: string;
+  nonFlooding?: string;
   /**
    * Number of apartments contained.
    */
@@ -1082,6 +1902,8 @@ export interface PropertyCharacteristics {
    * The number of guest and additional toilets
    */
   numberOfToiletsGuest?: number;
+  offices?: string;
+  officeSupplies?: string;
   /**
    * Built on even grounds.
    */
@@ -1094,6 +1916,63 @@ export interface PropertyCharacteristics {
    * Built on a sloping hillside towards the south.
    */
   onHillsideSouth?: ApplicableType;
+  onMainRoad?: string;
+  optician?: string;
+  outsideCamera?: string;
+  oven?: string;
+  paddle?: string;
+  painting?: string;
+  panel?: string;
+  parentalSuite?: string;
+  parging?: string;
+  perfumery?: string;
+  pergola?: string;
+  petStore?: string;
+  phone?: string;
+  photo?: string;
+  placeOfWorship?: string;
+  porkButcher?: string;
+  press?: string;
+  pressing?: string;
+  pressurizedAir?: string;
+  publicParking?: string;
+  publicPool?: string;
+  realEstateAgent?: string;
+  'reception24/7'?: string;
+  recreation?: string;
+  refrigerator?: string;
+  rJ45Cable?: string;
+  rubber?: string;
+  safe?: string;
+  scooter?: string;
+  seabob?: string;
+  securityDoor?: string;
+  segway?: string;
+  selfEmployed?: string;
+  sexShop?: string;
+  shoes?: string;
+  shoppingCentre?: string;
+  shops?: string;
+  slidingWindows?: string;
+  snack?: string;
+  solarArray?: string;
+  spa?: string;
+  spring?: string;
+  station?: string;
+  supermarket?: string;
+  synagogue?: string;
+  tableware?: string;
+  taxi?: string;
+  teaRoom?: string;
+  television?: string;
+  tGVStation?: string;
+  theater?: string;
+  tobacconist?: string;
+  toilet?: string;
+  tram?: string;
+  travelAgency?: string;
+  tVDistribution?: string;
+  university?: string;
   /**
    * Plot area built on, the ratio between plot area and gross floor area.
    */
@@ -1102,6 +1981,12 @@ export interface PropertyCharacteristics {
    * Plot area to be built on, the ratio between plot area and gross floor area.
    */
   utilizationRatioConstruction?: number;
+  vegetableFiber?: string;
+  veranda?: ApplicableType;
+  videoArcade?: string;
+  videoGame?: string;
+  videoSecurity?: string;
+  vinyl?: string;
   /**
    * Building volume in m³
    */
@@ -1139,6 +2024,19 @@ export interface PropertyCharacteristics {
    * Volume SIA-GV in m³
    */
   volumeSiaGv?: number;
+  wakeboard?: string;
+  wallCloset?: string;
+  wallpaper?: string;
+  waterFiltrationSystem?: string;
+  waterpark?: string;
+  waterSlide?: string;
+  waterSupply?: string;
+  well?: string;
+  wellDrilling?: string;
+  wharf?: string;
+  whirlpoolTub?: string;
+  windowShade?: string;
+  wiringCloset?: string;
   /**
    * Year of construction, in four digits.
    */
@@ -1147,171 +2045,6 @@ export interface PropertyCharacteristics {
    * Year of last renovation, in four digits.
    */
   yearLastRenovated?: number;
-}
-
-/**
- * Pets are allowed or not tolerated.
- *
- * Applicable can have three states, unknown must be treated as default.
- *
- * Has an attic.
- *
- * Balcony available.
- *
- * Restrictions for modifications apply, like monument protection and similar.
- *
- * Availability of cable tv.
- *
- * A covered structure used to offer limited protection from rain and snow, for one car.
- *
- * A covered structure used to offer limited protection from rain and snow, for two cars.
- *
- * Availability of a cellar.
- *
- * Whether or not a charging station for e-Cars is provided.
- *
- * States if the land is fully developed and ready being built on it.
- *
- * Used for building land, states if there is some demolition property on it (or pieces of
- * it).
- *
- * Availability of a dishwasher.
- *
- * Availability of an elevator.
- *
- * A charging station for e-Cars is provided.
- *
- * Availability of a fiber optic connection.
- *
- * Includes a framed opening to hold an open fire, indoors.
- *
- * Whether or not there is a residential community, sharing the living space.
- *
- * Widely used to control the amount of foreigners buying holiday flats in popular regions.
- *
- * A shelter for one car.
- *
- * A shelter for two cars.
- *
- * Subterranean garage for cars.
- *
- * A small building for storing garden tools, bicycles, and other equipment.
- *
- * Direct visibility of a lake.
- *
- * Provides vertical transportation between building floors, levels or decks, and are
- * commonly found in offices, public buildings and other types of multi-story
- * accommodation.
- *
- * Direct visibility of mountains.
- *
- * Has multimedia wiring.
- *
- * Has a lovely view, usually from the balcony or the living room.
- *
- * An uncovered space for one car or more cars.
- *
- * Whether or not a photovoltaic system is provided.
- *
- * Has a playground for children nearby.
- *
- * A sloping floor, walk, or roadway leading from one level to another, usually to make a
- * place accessible for wheels.
- *
- * Indicates that prospects can visit the property virtually (e.g. with a video-call or
- * guided virtual-tour hosted by the real estate agent)
- *
- * Has a steamer.
- *
- * Storeroom, stowage room.
- *
- * Availability of a gas connection, usually for heating and cooking.
- *
- * A connection to the public electric grid.
- *
- * A connection to the public waste water system.
- *
- * A connection to the public water supply.
- *
- * Personal swimming pool.
- *
- * Whether or not a thermal solar collector system is provided.
- *
- * A masonry heater or ceramic stove, is a device for warming an interior space usually fed
- * with wood.
- *
- * Dryer for clothes after washing them.
- *
- * For washing clothes and other cloth.
- *
- * Suitable for families.
- *
- * A house situated on the corner of two streets.
- *
- * If it's a tear-down property or a site of demolished structures.
- *
- * Old and in poor condition, in a state of decay.
- *
- * No one used the flat or the building before, since it was built or heavily renovated from
- * ground up.
- *
- * Nearly on a level with the ground.
- *
- * Half of a stair elevated story, in a building.
- *
- * Preparation for demolition or a part-demolition, all contaminants, doors, windows, floors
- * and non-load bearing walls were removed.
- *
- * Needs to be renewed in order to be fully usable again.
- *
- * Needs to be renewed partially in order to be fully usable again.
- *
- * Used, but as good as new.
- *
- * Situated between two other houses or buildings.
- *
- * Modernized means improved, things like a better insulated roof and walls, modern heating
- * system and similar improvements.
- *
- * Newly built house or building.
- *
- * Refers to the construction method used until 60-80 years ago.
- *
- * Planned for the future.
- *
- * Part of a quiet surrounding or neighbourhood.
- *
- * Fully renovated, neat, clean and restored.
- *
- * Partially renovated or restored.
- *
- * Where a person lives part time or less than the majority of the calendar year, typically
- * a holiday flat, some laws and landlords do not allow this.
- *
- * Intentionally missing interior finish in order to allow customization.
- *
- * Smoking allowed inside.
- *
- * Sunny surroundings, nor trees, mountains or other buildings do shadow.
- *
- * Is of temporary use.
- *
- * Mainly used for parking slots.
- *
- * Properly looked after.
- *
- * All aspects are accessible for wheelchair users.
- *
- * Built on even grounds.
- *
- * Built on a sloping hillside.
- *
- * Built on a sloping hillside towards the south.
- */
-export enum ApplicableType {
-  Applies = 'applies',
-  DoesNotApply = 'does-not-apply',
-  Unknown = 'unknown'
 }
 
 /**
