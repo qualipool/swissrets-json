@@ -316,6 +316,19 @@ export interface Person {
 }
 
 /**
+ * Property owner
+ *
+ * An owner of the property.
+ */
+export interface PropertyOwner {
+  companyName?: string;
+  givenName?: string;
+  familyName?: string;
+  email?: string;
+  address?: Address;
+}
+
+/**
  * The company selling
  *
  * An organization selling the property.
@@ -454,6 +467,7 @@ export interface Property {
    * property)
    */
   referenceId: string;
+  propertyOwner?: PropertyOwner;
   seller?: PropertySeller;
   /**
    * Specifies rent or buy.

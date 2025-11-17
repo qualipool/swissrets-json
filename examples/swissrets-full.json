@@ -194,6 +194,28 @@
           ]
         }
       ],
+      "propertyOwner": {
+        "companyName": "Zimmer AG",
+        "givenName": "Hans",
+        "familyName": "Zimmer",
+        "email": "test@example.com",
+        "address": {
+          "countryCode": "CH",
+          "locality": "Rheinfelden",
+          "region": "AG",
+          "postalCode": "4311",
+          "postOfficeBoxNumber": "124",
+          "street": "Hauptstrasse",
+          "streetNumber": "54",
+          "streetAddition": "e",
+          "subunit": 13,
+          "geo": {
+            "latitude": 4.6417,
+            "longitude": 8.6417,
+            "elevation": 129
+          }
+        }
+      },
       "seller": {
         "organization": {
           "id": "smg-agency-id-123",
