@@ -83,4 +83,29 @@ describe('properties[0].propertyOwner tests', () => {
         expect(output[0].message).toBe('must be string');
         expect(output[0].instancePath).toBe('/properties/0/propertyOwner/familyName');
     });
+
+    it('Valid - properties.propertyOwner.email is optional', () => {
+        const valid = _.cloneDeep(validListing) as SwissRetsInventory;
+        _.unset(valid, 'properties.propertyOwner.email');
+        const output = validateSwissRets(valid);
+
+        expect(output).toBeDefined();
+        expect(output).toHaveLength(0);
+    });
+
+    it('Invalid - properties[0].propertyOwner.email must be string', () => {
+        const invalid = stubSrFullModified('properties[0].propertyOwner.email', () => 33);
+        const output = validateSwissRets(invalid);
+
+        expect(output[0].message).toBe('must be string');
+        expect(output[0].instancePath).toBe('/properties/0/propertyOwner/email');
+    });
+
+    it('Invalid - properties[0].propertyOwner.email must be of certain pattern', () => {
+        const invalid = stubSrFullModified('properties[0].propertyOwner.email', () => 'fff.fff');
+        const output = validateSwissRets(invalid);
+
+        expect(output[0].message).toBe('must match pattern "[^@]+@[^\\.]+\\..+"');
+        expect(output[0].instancePath).toBe('/properties/0/propertyOwner/email');
+    });
 });
