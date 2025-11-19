@@ -1,12 +1,10 @@
-/* eslint-disable max-statements */
 import validListing from 'examples/swissrets-full.json';
 import _ from 'lodash';
-import {validateSwissRets} from 'src/ts/validator/validator';
-import {SwissRetsInventory} from 'src/ts/model/swissrets-model';
-import {stubSrFullModified} from 'src/ts/tests/resources/swissrets-stubs';
+import { validateSwissRets } from 'src/ts/validator/validator';
+import { SwissRetsInventory } from 'src/ts/model/swissrets-model';
+import { stubSrFullModified } from 'src/ts/tests/resources/swissrets-stubs';
 
 describe('properties[0].propertyOwner tests', () => {
-
   it('Valid - properties.propertyOwner is optional', () => {
     const valid = _.cloneDeep(validListing) as SwissRetsInventory;
     _.unset(valid, 'properties.propertyOwner');
@@ -26,7 +24,7 @@ describe('properties[0].propertyOwner tests', () => {
 
   it('Invalid - properties.propertyOwner cannot have additional properties', () => {
     const invalid = _.cloneDeep(validListing) as SwissRetsInventory;
-    _.assign(invalid.properties![0].propertyOwner, {additionalProperty: 'dummy'});
+    _.assign(invalid.properties![0].propertyOwner, { additionalProperty: 'dummy' });
     const output = validateSwissRets(invalid);
 
     expect(output[0].message).toBe('must NOT have additional properties');
