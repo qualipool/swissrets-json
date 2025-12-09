@@ -446,6 +446,10 @@ export interface Property {
   parcelNumbers?: string;
   prices?: PropertyPrices;
   /**
+   * The owner of the property.
+   */
+  propertyOwner?: PropertyOwner;
+  /**
    * List of publishers
    */
   publishers?: Publisher[];
@@ -1574,6 +1578,19 @@ export interface PropertyPriceRent {
    */
   net?: number;
   referring?: PriceReferringType;
+}
+
+/**
+ * The owner of the property.
+ *
+ * An owner of the property.
+ */
+export interface PropertyOwner {
+  address?: Address;
+  companyName?: string;
+  email?: string;
+  familyName?: string;
+  givenName?: string;
 }
 
 export interface Publisher {

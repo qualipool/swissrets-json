@@ -592,6 +592,10 @@
           "$ref": "#/$defs/addressType",
           "description": "Location of the property."
         },
+        "propertyOwner": {
+          "$ref": "#/$defs/propertyOwnerType",
+          "description": "The owner of the property."
+        },
         "seller": {
           "type": "object",
           "additionalProperties": false,
@@ -1648,6 +1652,28 @@
         },
         "website": {
           "$ref": "#/$defs/websiteType"
+        }
+      }
+    },
+    "propertyOwnerType": {
+      "description": "An owner of the property.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "companyName": {
+          "type": "string"
+        },
+        "givenName": {
+          "type": "string"
+        },
+        "familyName": {
+          "type": "string"
+        },
+        "email": {
+          "$ref": "#/$defs/emailType"
+        },
+        "address": {
+          "$ref": "#/$defs/addressType"
         }
       }
     },
