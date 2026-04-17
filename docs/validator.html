@@ -191,7 +191,7 @@
 
       async function loadSchema() {
         try {
-          const res = await fetch('../schema/swissRetsSchema.json');
+          const res = await fetch('swissRetsSchema.json');
           if (!res.ok) throw new Error('HTTP ' + res.status);
           const schema = await res.json();
 
@@ -203,7 +203,7 @@
           schemaStatusEl.className = 'schema-status loaded';
           validateBtn.disabled = false;
         } catch (err) {
-          schemaStatusEl.textContent = 'Failed to load schema: ' + err.message + '. Make sure the page is served via HTTP(S), not file://.';
+          schemaStatusEl.textContent = 'Failed to load schema: ' + err.message;
           schemaStatusEl.className = 'schema-status failed';
         }
       }
