@@ -2,7 +2,7 @@ name: Sync schema to docs
 
 on:
   push:
-    branches: [main]
+    branches: [master]
     paths:
       - 'schema/swissRetsSchema.json'
 
