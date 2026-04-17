@@ -724,6 +724,9 @@
         },
         "mimeType": {
           "type": "string"
+        },
+        "description": {
+          "type": "string"
         }
       },
       "required": ["url"]

@@ -204,9 +204,10 @@ export interface Link {
  * Floorplan image or document.
  */
 export interface Document {
-    mimeType?: string;
-    title?:    string;
-    url:       string;
+    description?: string;
+    mimeType?:    string;
+    title?:       string;
+    url:          string;
 }
 
 /**
