@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SwissRETS JSON Validator</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fa;
+      color: #1a1a2e;
+    }
+    header {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 1.2rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+    header a {
+      color: #a0c4ff;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    header a:hover { text-decoration: underline; }
+    .container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+    textarea {
+      width: 100%;
+      min-height: 360px;
+      padding: 0.8rem;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.85rem;
+      border: 2px solid #d0d5dd;
+      border-radius: 6px;
+      resize: vertical;
+      background: #fff;
+      transition: border-color 0.2s;
+    }
+    textarea:focus {
+      outline: none;
+      border-color: #4a90d9;
+    }
+    .actions {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    button {
+      padding: 0.6rem 1.4rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    #validateBtn {
+      background: #2563eb;
+      color: #fff;
+    }
+    #validateBtn:hover { background: #1d4ed8; }
+    #validateBtn:disabled {
+      background: #93a3b8;
+      cursor: not-allowed;
+    }
+    #clearBtn {
+      background: #e5e7eb;
+      color: #374151;
+    }
+    #clearBtn:hover { background: #d1d5db; }
+    #loadExampleBtn {
+      background: #e5e7eb;
+      color: #374151;
+    }
+    #loadExampleBtn:hover { background: #d1d5db; }
+    #result {
+      margin-top: 1.5rem;
+      padding: 1rem 1.2rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      display: none;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    #result.valid {
+      display: block;
+      background: #dcfce7;
+      border: 2px solid #22c55e;
+      color: #166534;
+    }
+    #result.invalid {
+      display: block;
+      background: #fef2f2;
+      border: 2px solid #ef4444;
+      color: #991b1b;
+    }
+    #result.error {
+      display: block;
+      background: #fefce8;
+      border: 2px solid #eab308;
+      color: #854d0e;
+    }
+    .error-list {
+      margin: 0.5rem 0 0 0;
+      padding: 0 0 0 1.2rem;
+    }
+    .error-list li {
+      margin-bottom: 0.3rem;
+    }
+    .error-path {
+      font-weight: 600;
+      font-family: monospace;
+    }
+    .schema-status {
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+    .schema-status.loaded { color: #16a34a; }
+    .schema-status.failed { color: #dc2626; }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SwissRETS JSON Validator</h1>
+    <a href="index.html">Schema Documentation</a>
+  </header>
+
+  <div class="container">
+    <div id="schemaStatus" class="schema-status">Loading schema&hellip;</div>
+
+    <label for="jsonInput">Paste your JSON here:</label>
+    <textarea id="jsonInput" placeholder='{"generator": {"version": "1.0"}, ...}'></textarea>
+
+    <div class="actions">
+      <button id="validateBtn" disabled>Validate</button>
+      <button id="loadExampleBtn">Load minimal example</button>
+      <button id="clearBtn">Clear</button>
+    </div>
+
+    <div id="result"></div>
+  </div>
+
+  <footer>
+    SwissRETS JSON Schema Validator &mdash; runs entirely in your browser, no data is sent to any server.
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.17.1/ajv2020.bundle.min.js"></script>
+  <script>
+    (function () {
+      const jsonInput = document.getElementById('jsonInput');
+      const validateBtn = document.getElementById('validateBtn');
+      const clearBtn = document.getElementById('clearBtn');
+      const loadExampleBtn = document.getElementById('loadExampleBtn');
+      const resultEl = document.getElementById('result');
+      const schemaStatusEl = document.getElementById('schemaStatus');
+
+      let validate = null;
+
+      const MINIMAL_EXAMPLE = JSON.stringify({
+        generator: { version: '1.0' }
+      }, null, 2);
+
+      async function loadSchema() {
+        try {
+          const res = await fetch('swissRetsSchema.json');
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          const schema = await res.json();
+
+          const ajv = new window.ajv2020({ allErrors: true, strict: false });
+          validate = ajv.compile(schema);
+
+          schemaStatusEl.textContent = 'Schema loaded successfully.';
+          schemaStatusEl.className = 'schema-status loaded';
+          validateBtn.disabled = false;
+        } catch (err) {
+          schemaStatusEl.textContent = 'Failed to load schema: ' + err.message;
+          schemaStatusEl.className = 'schema-status failed';
+        }
+      }
+
+      function escapeHtml(str) {
+        const div = document.createElement('div');
+        div.appendChild(document.createTextNode(str));
+        return div.innerHTML;
+      }
+
+      function doValidate() {
+        resultEl.className = '';
+        resultEl.style.display = 'none';
+        resultEl.innerHTML = '';
+
+        const raw = jsonInput.value.trim();
+        if (!raw) {
+          resultEl.className = 'error';
+          resultEl.textContent = 'Please enter some JSON to validate.';
+          resultEl.style.display = 'block';
+          return;
+        }
+
+        let data;
+        try {
+          data = JSON.parse(raw);
+        } catch (e) {
+          resultEl.className = 'error';
+          resultEl.textContent = 'Invalid JSON: ' + e.message;
+          resultEl.style.display = 'block';
+          return;
+        }
+
+        const valid = validate(data);
+        if (valid) {
+          resultEl.className = 'valid';
+          resultEl.innerHTML = '<strong>Valid!</strong> The JSON conforms to the SwissRETS schema.';
+          resultEl.style.display = 'block';
+        } else {
+          const errors = validate.errors;
+          let html = '<strong>Invalid.</strong> Found ' + errors.length + ' error(s):<ul class="error-list">';
+          for (const err of errors) {
+            const path = err.instancePath || '/';
+            html += '<li><span class="error-path">' + escapeHtml(path) + '</span>: ' + escapeHtml(err.message || 'unknown error');
+            if (err.params) {
+              const details = Object.entries(err.params)
+                .map(function (kv) { return kv[0] + '=' + JSON.stringify(kv[1]); })
+                .join(', ');
+              if (details) html += ' (' + escapeHtml(details) + ')';
+            }
+            html += '</li>';
+          }
+          html += '</ul>';
+          resultEl.className = 'invalid';
+          resultEl.innerHTML = html;
+          resultEl.style.display = 'block';
+        }
+      }
+
+      validateBtn.addEventListener('click', doValidate);
+
+      jsonInput.addEventListener('keydown', function (e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+          e.preventDefault();
+          if (!validateBtn.disabled) doValidate();
+        }
+      });
+
+      clearBtn.addEventListener('click', function () {
+        jsonInput.value = '';
+        resultEl.className = '';
+        resultEl.style.display = 'none';
+        resultEl.innerHTML = '';
+        jsonInput.focus();
+      });
+
+      loadExampleBtn.addEventListener('click', function () {
+        jsonInput.value = MINIMAL_EXAMPLE;
+        jsonInput.focus();
+      });
+
+      loadSchema();
+    })();
+  </script>
+</body>
+</html>
