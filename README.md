@@ -10,6 +10,10 @@ This repository is a fork of the XML-based repository https://github.com/qualipo
 
 Check out the schema [documentation](https://qualipool.github.io/swissrets-json/).
 
+## Online Validator
+
+You can validate SwissRETS-JSON data on our online validator: https://qualipool.github.io/swissrets-json/validator.html
+
 ## NPM Package
 
 ### Referencing the package
