@@ -2,7 +2,7 @@ name: Sync schema to docs
 
 on:
   push:
-    branches: [master]
+    branches-ignore: [master]
   workflow_dispatch:
 
 jobs:
