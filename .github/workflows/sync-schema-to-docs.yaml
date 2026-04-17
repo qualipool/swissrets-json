@@ -3,8 +3,7 @@ name: Sync schema to docs
 on:
   push:
     branches: [master]
-    paths:
-      - 'schema/swissRetsSchema.json'
+  workflow_dispatch:
 
 jobs:
   sync:

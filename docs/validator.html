@@ -172,8 +172,7 @@
     SwissRETS JSON Schema Validator &mdash; runs entirely in your browser, no data is sent to any server.
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/ajv@8/dist/ajv2020.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/ajv-formats@3/dist/formats.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ajv/8.17.1/ajv2020.bundle.min.js"></script>
   <script>
     (function () {
       const jsonInput = document.getElementById('jsonInput');
@@ -196,7 +195,6 @@
           const schema = await res.json();
 
           const ajv = new window.ajv2020({ allErrors: true, strict: false });
-          window.ajvFormats(ajv);
           validate = ajv.compile(schema);
 
           schemaStatusEl.textContent = 'Schema loaded successfully.';
