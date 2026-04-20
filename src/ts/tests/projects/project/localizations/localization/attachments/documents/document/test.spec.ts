@@ -91,4 +91,26 @@ describe('projects[0].localizations[0].attachments.documents[0] tests', () => {
     expect(output).toBeDefined();
     expect(output).toHaveLength(0);
   });
+
+  it('Invalid - projects[0].localizations[0].attachments.documents[0].description must be string', () => {
+    const clone = stubSrFullModified(
+      'projects[0].localizations[0].attachments.documents[0].description',
+      () => 33
+    );
+    const output = validateSwissRets(clone);
+
+    expect(output[0].message).toBe('must be string');
+    expect(output[0].instancePath).toBe(
+      '/projects/0/localizations/0/attachments/documents/0/description'
+    );
+  });
+
+  it('Valid - projects[0].localizations[0].attachments.documents[0].description is optional', () => {
+    const clone = _.cloneDeep(validListing) as SwissRetsInventory;
+    _.unset(clone, 'projects[0].localizations[0].attachments.documents[0].description');
+    const output = validateSwissRets(clone);
+
+    expect(output).toBeDefined();
+    expect(output).toHaveLength(0);
+  });
 });

@@ -80,7 +80,8 @@
               {
                 "url": "http://www.example.com/example.jpg",
                 "title": "",
-                "mimeType": ""
+                "mimeType": "",
+                "description": ""
               }
             ],
             "plans": [
@@ -387,7 +388,8 @@
               {
                 "url": "http://www.example.com/example.jpg",
                 "title": "",
-                "mimeType": ""
+                "mimeType": "",
+                "description": ""
               }
             ],
             "plans": [

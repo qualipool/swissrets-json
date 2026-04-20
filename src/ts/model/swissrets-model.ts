@@ -203,6 +203,7 @@ export interface Link {
  * Floorplan image or document.
  */
 export interface Document {
+  description?: string;
   mimeType?: string;
   title?: string;
   url: string;
