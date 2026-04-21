@@ -79,7 +79,7 @@ jobs:
       - name: Build the package
         run: npm run build
       - name: Copy documentation to the dist folder
-        run: mkdir dist/docs & cp -a docs/. dist/docs
+        run: mkdir -p dist/docs && cp -a docs/. dist/docs
       - name: Publish the package
         run: npm publish --provenance --access=public
 
