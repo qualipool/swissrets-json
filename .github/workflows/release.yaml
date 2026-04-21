@@ -31,13 +31,17 @@ jobs:
         with:
             fetch-depth: 0
             token: ${{ steps.releaser-app-token.outputs.token }}
-      # Setup .npmrc file to publish to GitHub Packages
       - uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          node-version: '22.14.0'
           registry-url: 'https://registry.npmjs.org'
-          # Defaults to the user or organization that owns the workflow file
           scope: '@qualipool'
+
+      - name: Upgrade npm for trusted publishing
+        run: npm install -g npm@^11.5.1
+
+      - name: Remove auth token placeholder to allow OIDC auth
+        run: npm config delete //registry.npmjs.org/:_authToken
 
         ######
         ## Calculate next version based on user semver input
