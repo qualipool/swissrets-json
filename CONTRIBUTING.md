@@ -37,7 +37,7 @@ Thank you for contributing to SwissRETS
 You're very welcome to fork the project and send pull requests.
 
 1. Use an editor that supports [ESLint](https://eslint.org/).
-1. Install [Node >= 20](https://nodejs.org/en/download/)
+1. Install [Node 22.14.0](https://nodejs.org/en/download/)
 1. Fork the project - hit the **Fork** button on [qualipool/swissrets-json](https://github.com/qualipool/swissrets-json) - top right corner
 1. Clone your fork locally
 1. `pnpm install`

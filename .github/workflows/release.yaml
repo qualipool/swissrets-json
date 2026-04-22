@@ -58,7 +58,7 @@ jobs:
         uses: fregante/setup-git-user@024bc0b8e177d7e77203b48dab6fb45666854b35 # v2
 
       - name: Bump version in package.json
-        run: jq --arg v "${{ steps.next_version.outputs.version }}" '.version = $v' package.json > tmp.json && mv tmp.json package.json
+        run: pnpm version "${{ steps.next_version.outputs.version }}" --no-git-tag-version
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
