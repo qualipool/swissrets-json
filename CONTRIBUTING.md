@@ -42,7 +42,7 @@ You're very welcome to fork the project and send pull requests.
 1. Clone your fork locally
 1. `pnpm install`
 1. Execute `sudo chmod +x ./scripts/setup.sh`.
-1. Execute `./scripts/setup.sh` to install dependencies.
+1. Execute `./scripts/setup.sh` to install the required Python tooling and make `generate-typescript-model.sh` executable.
 
 The schema file is the master for the model and documentation files. Do not edit the files under `src/ts/model` or `docs` directly, but use the respective generators to generate them.
 
