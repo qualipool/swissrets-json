@@ -36,7 +36,7 @@ jobs:
           version: 10.33.1
       - uses: actions/setup-node@v4
         with:
-          node-version: '22.14.0'
+          node-version-file: '.node-version'
           registry-url: 'https://registry.npmjs.org'
           scope: '@qualipool'
 
