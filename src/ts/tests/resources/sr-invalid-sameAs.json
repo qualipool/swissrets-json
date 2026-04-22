@@ -2,7 +2,7 @@
   "created": "2023-03-23T08:11:12Z",
   "generator": {
     "name": "CASAGATEWAY",
-    "version": "3.2"
+    "version": "3.2.0"
   },
   "properties": [
     {
@@ -39,7 +39,10 @@
         "egrid": ""
       },
       "buildingZones": "",
-      "categories": ["apartment", "farm-house"],
+      "categories": [
+        "apartment",
+        "farm-house"
+      ],
       "characteristics": {
         "areaBwf": 3
       },
@@ -411,7 +414,11 @@
               "title": "Some unit title"
             }
           ],
-          "characteristics": [{ "numberOfFloors": 3 }]
+          "characteristics": [
+            {
+              "numberOfFloors": 3
+            }
+          ]
         }
       ]
     }

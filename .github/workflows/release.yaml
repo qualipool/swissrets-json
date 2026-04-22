@@ -65,6 +65,21 @@ jobs:
         with:
           version: ${{ steps.next_version.outputs.version }}
 
+      # Keep SwissRetsVersion.latest and generator.version in sync with package.json.
+      # VERSION is set by the semver-release-action step above.
+      - name: Sync SwissRets version across source and example files
+        env:
+          VERSION: ${{ steps.next_version.outputs.version }}
+        run: |
+          sed -i "s/latest = '[^']*'/latest = '$VERSION'/" src/ts/model/swissrets-version.ts
+          for f in \
+            examples/swissrets-full.json \
+            examples/swissrets-min.json \
+            src/ts/tests/resources/sr-invalid-uniqId.json \
+            src/ts/tests/resources/sr-invalid-sameAs.json; do
+            jq --arg v "$VERSION" '.generator.version = $v' "$f" > tmp.json && mv tmp.json "$f"
+          done
+
       - name: Commit files, create tag and push to remote
         uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9.1.4
         with:
