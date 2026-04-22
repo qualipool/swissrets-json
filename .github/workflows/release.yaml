@@ -64,7 +64,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       # Keep SwissRetsVersion.latest and generator.version in sync with package.json.
-      # Runs after pnpm install so that node_modules/.bin/prettier uses the project's locked version.
+      # Runs after pnpm install so that pnpm exec prettier uses the project's locked version.
       - name: Sync SwissRets version across source and example files
         env:
           VERSION: ${{ steps.next_version.outputs.version }}
@@ -77,7 +77,7 @@ jobs:
             src/ts/tests/resources/sr-invalid-sameAs.json; do
             jq --arg v "$VERSION" '.generator.version = $v' "$f" > tmp.json && mv tmp.json "$f"
           done
-          node_modules/.bin/prettier --write \
+          pnpm exec prettier --write \
             examples/swissrets-full.json \
             examples/swissrets-min.json \
             src/ts/tests/resources/sr-invalid-uniqId.json \
@@ -94,7 +94,7 @@ jobs:
       ######
       ## Build package and publish it to npm
       ######
-      - name: Verify the integrity of installed dependencies
+      - name: Audit dependencies for known vulnerabilities
         run: pnpm audit
       - name: Build the package
         run: pnpm run build

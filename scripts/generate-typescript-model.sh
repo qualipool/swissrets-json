@@ -19,7 +19,7 @@ node -pe "
   JSON.stringify(json);
 " > $reduced_schema
 
-./node_modules/.bin/quicktype \
+pnpm exec quicktype \
   --acronym-style camel \
   --just-types \
   --no-boolean-strings \
