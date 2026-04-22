@@ -5,7 +5,7 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "packageManager": "npm@11.9.0",
+  "packageManager": "pnpm@10.33.1",
   "main": "dist/src/ts/index.js",
   "types": "dist/src/ts/index.d.ts",
   "files": [
@@ -19,7 +19,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "clean": "del-cli ./dist",
-    "build": "npm run clean && tsc --project tsconfig.build.json",
+    "build": "pnpm run clean && tsc --project tsconfig.build.json",
     "generate-model": "scripts/generate-typescript-model.sh"
   },
   "repository": {

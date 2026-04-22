@@ -31,17 +31,14 @@ jobs:
         with:
             fetch-depth: 0
             token: ${{ steps.releaser-app-token.outputs.token }}
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.1
       - uses: actions/setup-node@v4
         with:
           node-version: '22.14.0'
           registry-url: 'https://registry.npmjs.org'
           scope: '@qualipool'
-
-      - name: Upgrade npm for trusted publishing
-        run: npm install -g npm@^11.5.1
-
-      - name: Remove auth token placeholder to allow OIDC auth
-        run: npm config delete //registry.npmjs.org/:_authToken
 
         ######
         ## Calculate next version based on user semver input
@@ -61,15 +58,13 @@ jobs:
         uses: fregante/setup-git-user@024bc0b8e177d7e77203b48dab6fb45666854b35 # v2
 
       - name: Bump version in package.json
-        uses: reedyuk/npm-version@15e0d016f632fe38bbb704910b8359f23262deb7 # 1.2.2
-        with:
-          version: ${{ steps.next_version.outputs.version }}
+        run: jq --arg v "${{ steps.next_version.outputs.version }}" '.version = $v' package.json > tmp.json && mv tmp.json package.json
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       # Keep SwissRetsVersion.latest and generator.version in sync with package.json.
-      # Runs after npm ci so that node_modules/.bin/prettier uses the project's locked version.
+      # Runs after pnpm install so that node_modules/.bin/prettier uses the project's locked version.
       - name: Sync SwissRets version across source and example files
         env:
           VERSION: ${{ steps.next_version.outputs.version }}
@@ -99,14 +94,14 @@ jobs:
       ######
       ## Build package and publish it to npm
       ######
-      - name: Verify the integrity of signatures for installed dependencies
-        run: npm audit signatures
+      - name: Verify the integrity of installed dependencies
+        run: pnpm audit
       - name: Build the package
-        run: npm run build
+        run: pnpm run build
       - name: Copy documentation to the dist folder
         run: mkdir -p dist/docs && cp -a docs/. dist/docs
       - name: Publish the package
-        run: npm publish --provenance --access=public
+        run: pnpm publish --provenance --access=public
 
       ######
       ## Create GitHub release and release notes

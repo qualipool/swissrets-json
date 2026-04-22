@@ -18,7 +18,7 @@ You can validate SwissRETS-JSON data on our online validator: https://qualipool.
 
 ### Referencing the package
 
-* Add the package with `npm add @qualipool/swissrets-json`
+* Add the package with `pnpm add @qualipool/swissrets-json`
 
 ### Using the typescript schema validator
 
