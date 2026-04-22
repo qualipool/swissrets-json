@@ -2,7 +2,7 @@
 
 # This script generates a SwissRets model in the 'swissrets-model.ts' file from a JSON schema using Quicktype.
 # Please avoid manual modifications to 'swissrets-model.ts' and instead update the JSON schema,
-# then run 'npm run generate-model' to reflect those changes in the generated TypeScript model.
+# then run 'pnpm run generate-model' to reflect those changes in the generated TypeScript model.
 model=src/ts/model/swissrets-model.ts
 schema=schema/swissRetsSchema.json
 reduced_schema=${schema}.reduced
