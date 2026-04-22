@@ -39,10 +39,7 @@
         "egrid": ""
       },
       "buildingZones": "",
-      "categories": [
-        "apartment",
-        "farm-house"
-      ],
+      "categories": ["apartment", "farm-house"],
       "characteristics": {
         "areaBwf": 3
       },
