@@ -100,8 +100,14 @@ jobs:
         run: pnpm run build
       - name: Copy documentation to the dist folder
         run: mkdir -p dist/docs && cp -a docs/. dist/docs
+      - name: Upgrade npm for OIDC trusted publishing
+        run: npm install -g npm@^11.5.1
+
+      - name: Remove auth token placeholder to allow OIDC publish
+        run: npm config delete //registry.npmjs.org/:_authToken
+
       - name: Publish the package
-        run: pnpm publish --provenance --access=public
+        run: npm publish --provenance --access=public
 
       ######
       ## Create GitHub release and release notes
