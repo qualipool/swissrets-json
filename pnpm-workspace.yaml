@@ -6,9 +6,9 @@
 # No packages in this project currently require lifecycle scripts.
 strictDepBuilds: true
 
-# Block packages published within the last 3 days.
+# Block packages published within the last 3 days (4320 minutes).
 # Gives the community time to detect and remove malicious packages before they reach CI.
-minimumReleaseAge: "3 days"
+minimumReleaseAge: 4320
 
 # Block packages where a newer version has weaker publish authentication than a previous version.
 # Catches compromised maintainer accounts that publish outside of CI/CD.
