@@ -5,7 +5,6 @@
 
     "group:definitelyTyped",
     "group:linters",
-    "group:postcss",
     "group:unitTestNonMajor",
 
     ":automergeLinters",
@@ -36,45 +35,15 @@
   "prConcurrentLimit": 15,
 
   "packageRules": [
-    {
-      "matchSourceUrlPrefixes": ["https://github.com/getndazn/dazn-lambda-powertools"],
-      "groupName": "Dazn lambda powertools packages"
-    },
-    {
-      "matchSourceUrlPrefixes": ["https://github.com/middyjs/middy"],
-      "groupName": "Middy middleware packages"
-    },
-    {
-      "matchPackagePrefixes": [ "@aws-solutions-constructs"],
-      "groupSlug": "aws-solutions-constructs",
-      "groupName": "aws-solutions-constructs packages"
-    },
-
     { "matchManagers": ["github-actions"], "automerge": true },
 
     {
-      "matchPackageNames": ["vue", "vue-router", "vuex"],
-      "matchUpdateTypes": ["major"],
-      "enabled": false
-    },
-    {
-      "matchPackageNames": ["@smg-real-estate/vue-experiments"],
-      "matchUpdateTypes": ["major"],
-      "enabled": false
-    },
-
-    {
-      "matchPackagePatterns": ["@homegate", "@smg-real-estate"],
-      "schedule": ["after 1am and before 6pm every weekday"]
-    },
-
-    {
-      "matchDepTypes": ["action"],
-      "schedule": ["after 1am and before 6pm every weekday"]
+      "matchDepTypes": ["dependencies"],
+      "automerge": false,
+      "description": "Production dependencies are shipped to consumers - require human review before merging."
     },
 
     { "matchPackageNames": ["@types/node"], "extends": ["schedule:monthly"] }
-
   ],
 
   "hostRules": [

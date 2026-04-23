@@ -1,0 +1,15 @@
+# pnpm security controls
+# https://pnpm.io/blog/2025/12/05/newsroom-npm-supply-chain-security
+
+# Block lifecycle scripts (preinstall/postinstall) by default.
+# Installation fails immediately if a package has scripts, forcing a conscious allow/deny decision.
+# No packages in this project currently require lifecycle scripts.
+strictDepBuilds: true
+
+# Block packages published within the last 3 days.
+# Gives the community time to detect and remove malicious packages before they reach CI.
+minimumReleaseAge: "3 days"
+
+# Block packages where a newer version has weaker publish authentication than a previous version.
+# Catches compromised maintainer accounts that publish outside of CI/CD.
+trustPolicy: "no-downgrade"
