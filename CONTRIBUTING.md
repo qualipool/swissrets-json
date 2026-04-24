@@ -24,8 +24,8 @@ Thank you for contributing to SwissRETS
 ## Pull request process
 1. Ensure all your changes follow the principles and rules of this document.
 1. Generate the typescript model and the html documentation from the json-schema (see above).
-1. Ensure eslint validation with `npm run lint`.
-1. Ensure all tests are green with `npm run test`.
+1. Ensure eslint validation with `pnpm run lint`.
+1. Ensure all tests are green with `pnpm run test`.
 1. Push your branch and create a pull request.
 1. A maintainer will then take care about merging the pull request.
 
@@ -37,12 +37,12 @@ Thank you for contributing to SwissRETS
 You're very welcome to fork the project and send pull requests.
 
 1. Use an editor that supports [ESLint](https://eslint.org/).
-1. Install [Node >= 20](https://nodejs.org/en/download/)
+1. Install [Node 22.14.0](https://nodejs.org/en/download/)
 1. Fork the project - hit the **Fork** button on [qualipool/swissrets-json](https://github.com/qualipool/swissrets-json) - top right corner
 1. Clone your fork locally
-1. `npm i`
+1. `pnpm install`
 1. Execute `sudo chmod +x ./scripts/setup.sh`.
-1. Execute `./scripts/setup.sh` to install dependencies.
+1. Execute `./scripts/setup.sh` to install the required Python tooling and make `generate-typescript-model.sh` executable.
 
 The schema file is the master for the model and documentation files. Do not edit the files under `src/ts/model` or `docs` directly, but use the respective generators to generate them.
 
