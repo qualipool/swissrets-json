@@ -33,6 +33,6 @@ pnpm exec quicktype \
 
 # replace interface by classes, otherwise es6 won't end up with classes being exported
 sed -i.bak 's/ interface / & /g' $model
-
+rm ${model}.bak
 
 unset model schema reduced_schema file_header

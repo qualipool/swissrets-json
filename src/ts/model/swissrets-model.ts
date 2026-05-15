@@ -588,6 +588,7 @@ export enum PropertyCategory {
   Rustico = 'rustico',
   Sanatorium = 'sanatorium',
   Sauna = 'sauna',
+  SharedApartment = 'shared-apartment',
   ShoppingCenter = 'shopping-center',
   SingleGarage = 'single-garage',
   SingleRoom = 'single-room',
