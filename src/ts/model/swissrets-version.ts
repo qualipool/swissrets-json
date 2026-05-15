@@ -1,3 +1,3 @@
 export enum SwissRetsVersion {
-  latest = '3.5.0'
+  latest = '3.6.0'
 }
