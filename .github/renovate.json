@@ -28,9 +28,5 @@
 
   "packageRules": [
     { "matchPackageNames": ["@types/node"], "extends": ["schedule:monthly"] }
-  ],
-
-  "hostRules": [
-    { "hostType": "npm", "matchHost": "npm.pkg.github.com", "token": "{{ secrets.GITHUB_TOKEN }}" }
   ]
 }
