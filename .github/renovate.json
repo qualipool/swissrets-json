@@ -7,12 +7,6 @@
     "group:linters",
     "group:unitTestNonMajor",
 
-    ":automergeLinters",
-    ":automergeTesters",
-    ":automergeTypes",
-    ":automergeMinor",
-    ":automergeStableNonMajor",
-
     ":ignoreUnstable",
 
     ":prHourlyLimitNone",
@@ -28,25 +22,11 @@
 
   "schedule": ["every weekend"],
 
-  "automergeSchedule": ["after 1am and before 9am every weekday"],
-
-  "automergeStrategy": "rebase",
+  "automerge": false,
 
   "prConcurrentLimit": 15,
 
   "packageRules": [
-    { "matchManagers": ["github-actions"], "automerge": true },
-
-    {
-      "matchDepTypes": ["dependencies"],
-      "automerge": false,
-      "description": "Production dependencies are shipped to consumers - require human review before merging."
-    },
-
     { "matchPackageNames": ["@types/node"], "extends": ["schedule:monthly"] }
-  ],
-
-  "hostRules": [
-    { "hostType": "npm", "matchHost": "npm.pkg.github.com", "token": "{{ secrets.GITHUB_TOKEN }}" }
   ]
 }
