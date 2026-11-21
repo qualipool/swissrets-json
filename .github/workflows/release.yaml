@@ -114,7 +114,7 @@ jobs:
       ######
       - name: Prepare release notes
         id: changelog_builder
-        uses: mikepenz/release-changelog-builder-action@be351b03e64e3d77ebb9b64b4d130436be1c02be # v5
+        uses: mikepenz/release-changelog-builder-action@b0db9d18b53447ef9f940a46c8f31653c4d9f621 # v6
         with:
           # required as by default it uses ref from workflow start but that doesn't include the latest tag
           toTag: v${{ steps.next_version.outputs.version }}
