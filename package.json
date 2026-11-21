@@ -5,7 +5,7 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "packageManager": "pnpm@10.33.1",
+  "packageManager": "pnpm@12.21.0",
   "main": "dist/src/ts/index.js",
   "types": "dist/src/ts/index.d.ts",
   "files": [
