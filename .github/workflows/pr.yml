@@ -13,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
-    - uses: pnpm/action-setup@v4
+    - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6
       with:
-        version: 10.33.1
+        version: 10.34.9
     - uses: actions/setup-node@v4
       with:
         node-version-file: '.node-version'
