@@ -22,7 +22,7 @@
 
   "schedule": ["every weekend"],
 
-  "automerge": true,
+  "automerge": false,
   "platformAutomerge": false,
   "automergeStrategy": "squash",
 
@@ -30,6 +30,7 @@
 
   "packageRules": [
     { "matchDatasources": ["npm"], "minimumReleaseAge": "7 days" },
-    { "matchPackageNames": ["@types/node"], "extends": ["schedule:monthly"] }
+    { "matchPackageNames": ["@types/node"], "extends": ["schedule:monthly"] },
+    { "matchUpdateTypes": ["minor"], "automerge": true }
   ]
 }
