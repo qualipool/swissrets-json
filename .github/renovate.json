@@ -22,7 +22,7 @@
 
   "schedule": ["every weekend"],
 
-  "automerge": false,
+  "automerge": true,
 
   "prConcurrentLimit": 15,
 
