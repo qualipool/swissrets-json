@@ -62,13 +62,5 @@
     "ajv-formats": "^3.0.1",
     "lodash": "^4.18.1",
     "tslib": "^2.9.1"
-  },
-  "pnpm": {
-    "overrides": {
-      "fast-uri": ">=3.1.2"
-    },
-    "ignoredBuiltDependencies": [
-      "@parcel/watcher"
-    ]
   }
 }
