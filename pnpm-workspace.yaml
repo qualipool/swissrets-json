@@ -6,6 +6,12 @@
 # No packages in this project currently require lifecycle scripts.
 strictDepBuilds: true
 
+allowBuilds:
+  '@parcel/watcher': false
+
+overrides:
+  fast-uri: '>=3.1.2'
+
 # Block packages published within the last 7 days (10080 minutes).
 # Gives the community time to detect and remove malicious packages before they reach CI.
 minimumReleaseAge: 10080
