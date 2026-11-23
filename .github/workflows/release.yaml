@@ -179,7 +179,7 @@ jobs:
             }
 
       - name: Create github release
-        uses: ncipollo/release-action@cdcc88a9acf3ca41c16c37bb7d21b9ad48560d87 # v1
+        uses: ncipollo/release-action@339a81892b84b4eeb0f6e744e4574d79d0d9b8dd # v1
         with:
           body: ${{ steps.changelog_builder.outputs.changelog }}
           # needs to be set as by default the action doesn't see a tag as most likely it works with the ref when the
