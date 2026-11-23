@@ -23,6 +23,8 @@
   "schedule": ["every weekend"],
 
   "automerge": true,
+  "platformAutomerge": false,
+  "automergeStrategy": "squash",
 
   "prConcurrentLimit": 15,
 
