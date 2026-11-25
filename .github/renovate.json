@@ -26,6 +26,10 @@
   "platformAutomerge": false,
   "automergeStrategy": "squash",
 
+  "lockFileMaintenance": {
+    "automerge": true
+  },
+
   "prConcurrentLimit": 15,
 
   "packageRules": [
