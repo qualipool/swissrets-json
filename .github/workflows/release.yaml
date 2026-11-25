@@ -46,7 +46,7 @@ jobs:
         ######
       - name: Calculate next version based on semver input
         id: next_version
-        uses: zwaldowski/semver-release-action@a6a8309186ccf60c52ea2463a723c78d3b924577 # v4
+        uses: zwaldowski/semver-release-action@a1fcf12dda3d10c122d1d9cb161dece6363c7e19 # v6
         with:
           preid: alpha
           dry_run: true
