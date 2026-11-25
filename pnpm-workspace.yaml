@@ -19,3 +19,6 @@ minimumReleaseAge: 10080
 # Block packages where a newer version has weaker publish authentication than a previous version.
 # Catches compromised maintainer accounts that publish outside of CI/CD.
 trustPolicy: "no-downgrade"
+
+minimumReleaseAgeExclude:
+  - '@types/node@26.6.10'
