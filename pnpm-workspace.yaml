@@ -21,6 +21,7 @@ minimumReleaseAge: 10080
 trustPolicy: "no-downgrade"
 
 minimumReleaseAgeExclude:
+  - '@types/node@26.6.10'
   - '@typescript-eslint/eslint-plugin@8.74.0'
   - '@typescript-eslint/parser@8.74.0'
   - '@typescript-eslint/project-service@8.74.0'
